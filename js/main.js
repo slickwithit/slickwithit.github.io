@@ -334,7 +334,7 @@ if (window.gsap && !reduceMotion) {
   if ($(".sheet-top")) {
     const intro = gsap.timeline({ defaults: { ease: "expo.out" } });
     intro
-      .from(".site-header > *", { y: -30, opacity: 0, duration: 0.9, stagger: 0.08 })
+      .from(".site-header > *", { y: -30, opacity: 0, duration: 0.9, stagger: 0.08, clearProps: "transform,opacity" })
       .from(".title-meta span", { y: 14, opacity: 0, duration: 0.8, stagger: 0.1 }, "<0.1")
       .from(".hero-title .char", { yPercent: 110, rotate: 6, opacity: 0, duration: 1.2, stagger: 0.05 }, "<")
       .from(".cat-o .cat-art", { scale: 0, rotate: -40, duration: 1, ease: "back.out(2.2)" }, "<0.35")
@@ -358,7 +358,7 @@ if (window.gsap && !reduceMotion) {
       scrollTrigger: { trigger: ".hello", start: "top bottom", end: "top 30%", scrub: true },
     });
   } else {
-    gsap.from(".site-header > *", { y: -30, opacity: 0, duration: 0.9, stagger: 0.08, ease: "expo.out" });
+    gsap.from(".site-header > *", { y: -30, opacity: 0, duration: 0.9, stagger: 0.08, ease: "expo.out", clearProps: "transform,opacity" });
   }
 
   /* tickers: endless loop that speeds up + flips direction with scroll */

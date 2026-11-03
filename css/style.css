@@ -961,7 +961,8 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 }
 
 @media (max-width: 640px) {
-  .site-header { padding-top: 14px; }
+  /* phones: leave room for notches and in-app browser bars, and keep the cat level with the nav */
+  .site-header { align-items: center; padding-top: max(16px, calc(env(safe-area-inset-top) + 10px)); }
   .nav { gap: 6px; }
   .sticker--b { display: none; }
   .sticker { padding: 5px 10px 4px; font-size: 10px; }
@@ -971,7 +972,7 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
   .cat-msg-arrow { width: 44px; height: 34px; margin: 0 40px -2px 0; }
   .cat-msg-note { margin-top: 0; }
   .star-row { margin: 140px 0 48px; }
-  .logo--cat { width: 34px; font-size: 30px; }
+  .logo--cat { flex: 0 0 auto; width: 36px; font-size: 30px; margin-top: 2px; }
   .hello { grid-template-columns: 1fr; gap: 32px; }
   .stat-board { gap: 16px; }
   .stat-note { padding: 20px 14px 16px; }
