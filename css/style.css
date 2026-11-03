@@ -152,6 +152,7 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 .sticker--b { --rot: 1.5deg; }
 .sticker--c { --rot: -1deg; }
 .sticker--d { --rot: 2.5deg; }
+.sticker--h { --rot: 2deg; }
 .sticker:hover {
   background: var(--accent);
   color: #fff;
