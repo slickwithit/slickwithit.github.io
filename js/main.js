@@ -292,15 +292,23 @@ if (photo) {
   const msg = $(".photo-msg", photo);
   const place = (e) => {
     const r = photo.getBoundingClientRect();
-    msg.style.transform = `translate(${e.clientX - r.left + 16}px, ${e.clientY - r.top + 18}px)`;
+    // keep the note on screen: never further right than ~200px from the photo's right edge
+    const x = Math.max(0, Math.min(e.clientX - r.left + 16, r.width - 200));
+    msg.style.transform = `translate(${x}px, ${e.clientY - r.top + 18}px)`;
   };
-  photo.addEventListener("mouseenter", (e) => { place(e); think(); });
-  photo.addEventListener("mousemove", place);
-  photo.addEventListener("mouseleave", stop);
-  photo.addEventListener("focus", () => { msg.style.transform = "translate(8%, 102%)"; think(); });
+  // mouse: hover in → she looks up + a thought types; hover out → back
+  photo.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { place(e); think(); } });
+  photo.addEventListener("pointermove", (e) => { if (e.pointerType === "mouse") place(e); });
+  photo.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") stop(); });
+  // touch (phones, tablets): each tap toggles: tap → look up + thought, tap again → back
+  photo.addEventListener("pointerup", (e) => {
+    if (e.pointerType === "mouse") return;
+    if (photo.classList.contains("is-thinking")) stop();
+    else { place(e); think(); }
+  });
+  // keyboard: tabbing onto the photo works like a hover
+  photo.addEventListener("focus", () => { if (photo.matches(":focus-visible")) { msg.style.transform = "translate(8%, 102%)"; think(); } });
   photo.addEventListener("blur", stop);
-  // phones can't hover, so a tap shows the next thought instead
-  if (window.matchMedia("(hover: none)").matches) photo.addEventListener("click", (e) => { place(e); think(); });
 }
 
 /* ---------- split headline into letters ---------- */
