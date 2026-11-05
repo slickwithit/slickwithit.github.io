@@ -929,6 +929,9 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 .video-frame .tape,
 .clip .tape { position: absolute; left: 50%; top: -12px; width: 96px; height: 24px; background: var(--tape); transform: translateX(-50%) rotate(-3deg); }
 .video-frame video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
+/* reels are tall, so they get a narrow frame and keep their own shape */
+.video-frame--reel { max-width: 380px; }
+.video-frame--reel video { aspect-ratio: auto; }
 .clip-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 28px; max-width: 1000px; margin-top: 34px; }
 .clip { position: relative; margin: 0; padding: 8px 8px 34px; background: #faf9f5; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 16px 30px -14px rgba(0, 0, 0, 0.32); transform: rotate(var(--r)); }
 .clip video { display: block; width: 100%; height: auto; aspect-ratio: 1320 / 826; object-fit: cover; background: #f2f4f8; }

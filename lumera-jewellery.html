@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Lumera Jewellery · Archita</title>
+  <meta name="description" content="A mock jewellery brand: identity, promotional posters and a teaser reel." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo logo--cat" aria-label="Home"><span class="cat" aria-hidden="true"><span class="cat-art"><img class="cat-base" src="assets/cat-base.png" alt="" width="439" height="485" /><img class="cat-tongue" src="assets/cat-tongue.png" alt="" width="90" height="54" /><i class="lid lid--l"></i><i class="lid lid--r"></i></span></span></a>
+    <nav class="nav">
+      <a href="index.html#hello" class="sticker sticker--c">About</a>
+      <a href="index.html#work" class="sticker sticker--a">Work</a>
+      <a href="index.html#contact" class="sticker sticker--d">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top" class="case">
+    <!-- ============ CASE HERO ============ -->
+    <section class="case-hero">
+      <a href="index.html#work" class="mono back-link">← all work</a>
+      <div class="case-title-row">
+        <h1 class="case-title">Lumera<br /><em>jewellery</em></h1>
+        <span class="stamp stamp--big mono">Concept</span>
+      </div>
+      <p class="case-summary" data-reveal>Another brand I made up, this time a jewellery label that whispers instead of shouts. Soft luxury, lots of space, one piece in the spotlight.</p>
+
+      <dl class="case-meta" data-reveal-stagger>
+        <div><dt class="mono">Type</dt><dd>Mock brand project</dd></div>
+        <div><dt class="mono">Covers</dt><dd>Identity, social, motion</dd></div>
+        <div><dt class="mono">Made</dt><dd>2 posters, 1 teaser reel</dd></div>
+        <div><dt class="mono">Made with</dt><dd>Photoshop, Canva, CapCut</dd></div>
+      </dl>
+    </section>
+
+    <!-- ============ 01 THE BRAND ============ -->
+    <section class="case-block case-block--insight">
+      <p class="case-num mono">01</p>
+      <div>
+        <h2 class="tape-title">The brand</h2>
+        <p class="hand prompt page-write">→ who lumera is</p>
+        <p class="case-text" data-reveal>Lumera is a contemporary jewellery brand. The goal was a minimal, elegant visual language that still holds its own on a busy feed.</p>
+        <p class="case-text" data-reveal>Clean layouts, soft luxury, and the same look everywhere it shows up. Set in Atkinson Hyperlegible and Bricolage Grotesque.</p>
+        <blockquote class="insight-card" data-reveal="tilt" style="--r:-1.5deg">
+          <i class="tape"></i>
+          “Seen by the few who matter.”
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ============ 02 THE WORK ============ -->
+    <section class="case-block">
+      <p class="case-num mono">02</p>
+      <div>
+        <h2 class="tape-title">The work</h2>
+        <p class="hand prompt page-write">→ the posters</p>
+        <p class="case-text" data-reveal>Two promotional posters for social and digital. Tap one to see it big.</p>
+        <div class="pins">
+          <figure class="pin" style="--r:-2.5deg">
+            <i class="tape"></i>
+            <button class="pin-open" data-full="assets/lumera/poster-1.jpg" aria-label="Open gold earring poster">
+              <img src="assets/lumera/poster-1.jpg" alt="Lumera poster: a gold earring on a black and white portrait, Seen by the few who matter" loading="lazy" />
+            </button>
+          </figure>
+          <figure class="pin" style="--r:2deg">
+            <i class="tape"></i>
+            <button class="pin-open" data-full="assets/lumera/poster-2.jpg" aria-label="Open statue poster">
+              <img src="assets/lumera/poster-2.jpg" alt="Lumera poster: a classical statue wearing blue drop earrings" loading="lazy" />
+            </button>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- the teaser plays on its own while it's on screen -->
+    <section class="case-block case-block--last">
+      <p class="case-num mono"></p>
+      <div>
+        <p class="hand prompt page-write">→ and the teaser reel</p>
+        <p class="case-text" data-reveal>A short "coming soon" reel that takes the look into motion, made for stories and reels.</p>
+        <figure class="video-frame video-frame--reel" data-reveal="tilt" style="--r:1deg">
+          <i class="tape"></i>
+          <video src="assets/lumera/reel.mp4" poster="assets/lumera/reel.jpg" muted loop playsinline preload="none" data-inview aria-label="Lumera coming soon teaser reel"></video>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ NEXT ============ -->
+    <section class="contact case-next" data-tear="top">
+      <p class="hand contact-psst">next up ↓</p>
+      <a class="contact-title next-link" href="index.html#contact">Say hi <em>→</em></a>
+      <footer class="footer mono">
+        <span>© 2026</span>
+        <a href="index.html">back home ↑</a>
+      </footer>
+    </section>
+  </main>
+
+  <dialog class="lightbox" aria-label="Poster preview"><div class="lightbox-imgs"></div><p class="lightbox-concept"></p><span class="mono lightbox-close">click anywhere to close ✕</span></dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
