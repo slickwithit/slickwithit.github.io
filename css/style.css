@@ -413,15 +413,15 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 .exp-org { margin: 0 !important; font-size: 15px; font-weight: 800; font-stretch: 125%; color: var(--ink); }
 .exp-role { margin: 4px 0 0 !important; font-size: 14px; line-height: 1.45; color: #3a3a3a; }
 .exp-date { display: block; font-family: var(--f-mono); font-size: 11px; color: #6a6a6a; }
-/* certifications: a small subsection under education, one hairline row per certificate */
-.hello-certs { margin-top: 26px; max-width: 52ch; }
-.hello-text .cert-label { margin: 0 0 8px; font-size: 12px; font-weight: 800; font-stretch: 125%; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+/* certifications: a small subsection under education, one hairline row per certificate.
+   the label wears .mini-b like the year; 14px above and below matches the education title gap */
+.hello-certs { max-width: 52ch; }
+.hello-text .cert-label { margin: 14px 0 !important; }
 .certs { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(18, 18, 18, 0.14); }
-.certs a { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding: 9px 0; border-bottom: 1px solid rgba(18, 18, 18, 0.14); font-size: 14px; font-stretch: 120%; line-height: 1.4; color: #3a3a3a; transition: color .2s, padding .2s; }
-.cert-by { flex: none; font-family: var(--f-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8a8a; transition: color .2s; }
-.cert-by::after { content: " ↗"; color: var(--accent); }
+.certs a { display: block; padding: 9px 0; border-bottom: 1px solid rgba(18, 18, 18, 0.14); font-size: 14px; font-stretch: 120%; line-height: 1.45; color: #3a3a3a; transition: color .2s, padding .2s; }
+.cert-by { color: #8a8a8a; white-space: nowrap; }
+.cert-arrow { color: var(--accent); }
 .certs a:hover, .certs a:focus-visible { padding-left: 6px; color: var(--ink); }
-.certs a:hover .cert-by, .certs a:focus-visible .cert-by { color: var(--accent); }
 
 .strengths { margin: 20px 0 0; padding: 0; list-style: none; }
 .strengths li { font-size: 15px; font-weight: 700; line-height: 1.9; }
