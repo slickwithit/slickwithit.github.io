@@ -413,6 +413,11 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 .exp-org { margin: 0 !important; font-size: 15px; font-weight: 800; font-stretch: 125%; color: var(--ink); }
 .exp-role { margin: 4px 0 0 !important; font-size: 14px; line-height: 1.45; color: #3a3a3a; }
 .exp-date { display: block; font-family: var(--f-mono); font-size: 11px; color: #6a6a6a; }
+/* certifications sit in .hello-text, whose p rule would flatten the issuer names */
+.hello-certs .exp-org { font-size: 15px; font-weight: 800; line-height: 1.4; color: var(--ink); }
+.cert { display: block; width: fit-content; margin-top: 4px; font-size: 14px; font-stretch: 120%; line-height: 1.45; color: #3a3a3a; text-decoration: none; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.cert span { color: var(--accent); }
+.cert:hover, .cert:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
 
 .strengths { margin: 20px 0 0; padding: 0; list-style: none; }
 .strengths li { font-size: 15px; font-weight: 700; line-height: 1.9; }
