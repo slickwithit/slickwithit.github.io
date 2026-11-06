@@ -566,6 +566,349 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
   transform: rotate(14deg);
 }
 
+/* project tickets (index-tickets.html): die-cut paper tickets hung on two threads with clothespins.
+   .hang pivots at its peg and carries the tilt; .ticket carries the shadow (drop-shadow follows the cut shape)
+   and slides out of the clip on hover; .ticket-paper is the paper itself, notches cut out by a mask */
+.lines { max-width: 1120px; margin: 72px auto 0; }
+.line { position: relative; }
+.line + .line { margin-top: 56px; }
+/* the thread overhangs the tickets a little and ends in a nail at each side */
+.thread { position: absolute; left: -4%; top: 0; width: 108%; height: 80px; overflow: visible; pointer-events: none; }
+/* no non-scaling-stroke here: it breaks pathLength, which the draw-in animation needs */
+.thread path { fill: none; stroke: #3a3a3a; stroke-width: 1.5; stroke-dasharray: 1; }
+.line::before,
+.line::after { content: ""; position: absolute; top: 5px; z-index: 1; width: 10px; height: 10px; border-radius: 50%; background: var(--ink); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3); }
+.line::before { left: calc(-4% - 5px); }
+.line::after { right: calc(-4% - 5px); }
+.line-tickets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: clamp(24px, 3vw, 44px); }
+/* each peg sits where the sagging thread passes over it */
+.hang { position: relative; padding-top: 34px; margin-top: 12px; transform: rotate(var(--r)); transform-origin: 50% 16px; transition: opacity 0.35s, filter 0.35s; }
+.hang:nth-child(2) { margin-top: 24px; }
+.peg { position: absolute; left: 50%; top: 0; z-index: 2; width: 16px; height: 54px; translate: -50% 0; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3)); }
+/* tickets with a notch at the top centre get pegged beside the notch, not over the hole */
+.hang:has(.ticket-paper--b) { transform-origin: 26% 16px; }
+.hang:has(.ticket-paper--b) .peg { left: 26%; }
+.hang:has(.ticket-paper--c, .ticket-paper--d) { transform-origin: 74% 16px; }
+.hang:has(.ticket-paper--c, .ticket-paper--d) .peg { left: 74%; }
+/* idle dangle: each ticket sways a little on its peg, out of step with its neighbours, and holds still on hover.
+   it uses the separate rotate property so it adds to the tilt and the drop-in, which use transform */
+@media (prefers-reduced-motion: no-preference) {
+  .hang { animation: dangle 3.2s ease-in-out infinite alternate; }
+  .hang:nth-child(2) { animation-duration: 2.7s; animation-delay: -1.1s; }
+  .hang:nth-child(3) { animation-duration: 3.6s; animation-delay: -2.3s; }
+  .line + .line .hang { animation-delay: -0.6s; }
+  .line + .line .hang:nth-child(2) { animation-delay: -1.9s; }
+  .line + .line .hang:nth-child(3) { animation-delay: -0.2s; }
+  .hang:hover { animation-play-state: paused; }
+}
+@keyframes dangle {
+  from { rotate: -1.6deg; }
+  to { rotate: 1.6deg; }
+}
+/* hovering one ticket lets the others fade back */
+.lines:has(.hang:hover) .hang:not(:hover) { opacity: 0.5; filter: blur(3px); }
+/* the ticket you point at comes out toward you, so its shadow drops deeper */
+.hang:hover .ticket { filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.12)) drop-shadow(0 34px 34px rgba(0, 0, 0, 0.32)); }
+.hang:hover { z-index: 3; }
+.ticket {
+  display: block;
+  color: inherit;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1)) drop-shadow(0 14px 18px rgba(0, 0, 0, 0.22));
+  transition: filter 0.4s;
+}
+.lines-swipe { display: none; }
+.ticket-paper {
+  display: flex;
+  flex-direction: column;
+  padding: 26px 22px 20px;
+  background: #faf9f5;
+}
+/* a: half-circle bites out of both sides */
+.ticket-paper--a {
+  -webkit-mask: radial-gradient(circle 17px at 0 44%, #0000 97%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 17px at 100% 44%, #0000 97%, #000) right / 51% 100% no-repeat;
+          mask: radial-gradient(circle 17px at 0 44%, #0000 97%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 17px at 100% 44%, #0000 97%, #000) right / 51% 100% no-repeat;
+}
+/* b: one wide scoop out of the top, soft corners */
+.ticket-paper--b {
+  padding-top: 52px;
+  border-radius: 14px;
+  -webkit-mask: radial-gradient(circle 46px at 50% -14px, #0000 97%, #000);
+          mask: radial-gradient(circle 46px at 50% -14px, #0000 97%, #000);
+}
+/* c: round corners with a notch top and bottom */
+.ticket-paper--c {
+  padding-top: 40px;
+  border-radius: 22px;
+  -webkit-mask: radial-gradient(circle 22px at 50% 0, #0000 97%, #000) top / 100% 51% no-repeat,
+                radial-gradient(circle 22px at 50% 100%, #0000 97%, #000) bottom / 100% 51% no-repeat;
+          mask: radial-gradient(circle 22px at 50% 0, #0000 97%, #000) top / 100% 51% no-repeat,
+                radial-gradient(circle 22px at 50% 100%, #0000 97%, #000) bottom / 100% 51% no-repeat;
+}
+/* d: clipped corners plus the top and bottom notches */
+.ticket-paper--d {
+  padding-top: 40px;
+  clip-path: polygon(22px 0, calc(100% - 22px) 0, 100% 22px, 100% calc(100% - 22px), calc(100% - 22px) 100%, 22px 100%, 0 calc(100% - 22px), 0 22px);
+  -webkit-mask: radial-gradient(circle 22px at 50% 0, #0000 97%, #000) top / 100% 51% no-repeat,
+                radial-gradient(circle 22px at 50% 100%, #0000 97%, #000) bottom / 100% 51% no-repeat;
+          mask: radial-gradient(circle 22px at 50% 0, #0000 97%, #000) top / 100% 51% no-repeat,
+                radial-gradient(circle 22px at 50% 100%, #0000 97%, #000) bottom / 100% 51% no-repeat;
+}
+.ticket-title {
+  margin: 0 0 14px;
+  font-size: clamp(24px, 2.2vw, 32px);
+  font-weight: 900;
+  font-stretch: 115%;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition: color 0.2s;
+}
+.ticket-num { font-family: var(--f-hand); font-size: 1.1em; font-weight: 700; letter-spacing: 0; color: var(--accent); white-space: nowrap; }
+.ticket-rows { margin: 0; border-top: 1px solid rgba(18, 18, 18, 0.5); }
+.ticket-rows div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 7px 0 6px; border-bottom: 1px solid rgba(18, 18, 18, 0.5); }
+.ticket-rows dt { flex: none; font-size: 13px; font-weight: 800; font-stretch: 120%; }
+.ticket-rows dd { margin: 0; font-family: var(--f-hand); font-size: 21px; font-weight: 500; line-height: 1.1; text-align: right; color: var(--ink-soft); }
+.ticket-img { aspect-ratio: 4 / 3; margin: 16px 0; overflow: hidden; background: #e4e1d9; }
+.ticket-paper > .ticket-img:nth-child(2) { margin-top: 0; }
+.ticket-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease-out); }
+/* poster ticket: same shark crop as the old card, trimming the empty black above it */
+.ticket-img--rip { position: relative; background: #000; }
+.ticket-img--rip img { position: absolute; left: 50%; top: -8%; width: auto; height: 118%; translate: -50% 0; }
+.ticket-open { align-self: flex-end; margin-top: 2px; font-size: 12px; font-weight: 800; font-stretch: 120%; color: var(--accent); }
+.ticket:hover .ticket-title { color: var(--accent); }
+.ticket:hover .ticket-img img { transform: scale(1.04); }
+@media (max-width: 760px) {
+  /* phones: one thread you swipe along; .line boxes dissolve so all six hang from the same thread */
+  .lines-swipe { display: block; margin: 8px 0 0; text-align: center; font-size: 22px; color: var(--ink-soft); }
+  .lines {
+    display: flex;
+    gap: 22px;
+    margin: 24px calc(-1 * var(--gutter)) 0;
+    padding: 0 var(--gutter) 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    background: linear-gradient(#3a3a3a, #3a3a3a) 0 16px / 100% 1.5px no-repeat local;
+  }
+  .lines::-webkit-scrollbar { display: none; }
+  .line, .line-tickets { display: contents; }
+  .thread, .line::before, .line::after { display: none; }
+  .hang, .hang:nth-child(2) { flex: 0 0 76%; margin-top: 0; scroll-snap-align: center; }
+  .lines:has(.hang:hover) .hang:not(:hover) { opacity: 1; }
+}
+
+/* pinboard (index-board.html): the same tickets, pinned up and joined by one red string.
+   .pinup carries the tilt; its .pin-spot marks where the pin goes. main.js draws the string there in
+   .board-string (behind the tickets) and the pin heads in .board-pins (on top). hover lifts the ticket off its pin */
+.board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 40px clamp(32px, 4vw, 60px);
+  max-width: 1080px;
+  margin: 72px auto 0;
+}
+/* a snake: 01 02 03 left to right, then 04 05 06 back from the right */
+.pinup:nth-of-type(1) { grid-area: 1 / 1; }
+.pinup:nth-of-type(2) { grid-area: 1 / 2; margin-top: 90px; }
+.pinup:nth-of-type(3) { grid-area: 1 / 3; margin-top: 20px; }
+.pinup:nth-of-type(4) { grid-area: 2 / 3; margin-top: 40px; }
+.pinup:nth-of-type(5) { grid-area: 2 / 2; margin-top: 110px; }
+.pinup:nth-of-type(6) { grid-area: 2 / 1; margin-top: 30px; }
+.pinup { position: relative; transform: rotate(var(--r)); transition: opacity 0.35s; }
+.pin-spot { position: absolute; left: 50%; top: 18px; width: 0; height: 0; }
+/* tickets with a notch at the top centre get pinned beside it, into the paper */
+.pinup:has(.ticket-paper--b) .pin-spot { left: 26%; }
+.pinup:has(.ticket-paper--c, .ticket-paper--d) .pin-spot { left: 74%; }
+.board:has(.pinup:hover) .pinup:not(:hover) { opacity: 0.45; }
+.pinup:hover { z-index: 3; } /* the lifted ticket comes up over the string */
+.pinup-note { display: flex; align-items: flex-start; gap: 6px; width: fit-content; max-width: 88%; margin: 16px 0 0 10px; padding: 6px 12px 7px 8px; font-size: 24px; line-height: 1.1; color: var(--ink-soft); background: #faf9f5; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 8px 14px -8px rgba(0, 0, 0, 0.3); rotate: -2deg; }
+/* notes are little paper slips, so the string passes behind them like it does behind the tickets */
+.pinup-arrow { flex: none; width: 34px; height: 26px; margin-top: -4px; fill: none; stroke: var(--ink-soft); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+/* the string runs behind the tickets (first in the board), the pin heads sit on top of them (last) */
+.board-string,
+.board-pins { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.board-pins { z-index: 2; }
+.board-string path { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.25)); }
+.board-pins circle { fill: var(--accent); }
+.board-pins .pin-shine { fill: rgba(255, 255, 255, 0.55); }
+.board-pins .pin-shadow { fill: rgba(0, 0, 0, 0.25); }
+/* a couple of doodles, kept light */
+.doodle { position: absolute; pointer-events: none; }
+.doodle--stars { right: -40px; top: -30px; display: flex; gap: 6px; rotate: 12deg; }
+.doodle--stars svg { width: 20px; fill: var(--accent); }
+.doodle--stars svg:nth-child(2) { width: 14px; margin-top: 14px; }
+.doodle--stars svg:nth-child(3) { width: 10px; }
+.doodle--loop { left: 34%; bottom: -60px; width: 120px; fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linecap: round; opacity: 0.8; }
+@media (max-width: 760px) {
+  /* phones: one column that zigzags, left, right, left… so the string zigzags down with it */
+  .board { grid-template-columns: 1fr; gap: 48px; margin-top: 48px; }
+  .pinup:nth-of-type(n) { grid-area: auto; margin-top: 0; width: 84%; }
+  .pinup:nth-of-type(even) { margin-left: auto; }
+  .pinup-note { font-size: 22px; }
+  .pinup:nth-of-type(even) .pinup-note { margin-left: auto; margin-right: 10px; rotate: 2deg; }
+  .doodle { display: none; }
+}
+
+/* what i can help with (index-tickets.html): a five-step walkthrough pinned to the board.
+   photo-print cards pinned up, each with its step number; a bold red thread runs over them in order,
+   with arrows along it */
+.help { margin-top: clamp(120px, 12vw, 180px); }
+.board--help { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 clamp(20px, 3vw, 40px); max-width: 1080px; }
+.board--help .pinup { justify-self: center; width: min(100%, 250px); }
+/* one row, at different heights, so the thread waves left to right through the steps */
+.board--help .pinup:nth-of-type(1) { grid-area: auto; margin: 0; }
+.board--help .pinup:nth-of-type(2) { grid-area: auto; margin: 110px 0 0; }
+.board--help .pinup:nth-of-type(3) { grid-area: auto; margin: 20px 0 0; }
+.board--help .pinup:nth-of-type(4) { grid-area: auto; margin: 130px 0 0; }
+/* pins go into the white frame above the photo, so the thread runs along the top edges, not across the images */
+.board--help .pin-spot { top: 5px; }
+/* here the thread runs over the cards like the reference (pin heads and arrows still sit on top of it) */
+.board--help .board-string { z-index: 2; }
+/* same thread as the selected work clotheslines: thin, dark grey, no shadow */
+.board--help .board-string path { stroke: #3a3a3a; stroke-width: 1.5; filter: none; }
+.board-pins .thread-arrow-halo { fill: none; stroke: #faf9f5; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.board-pins .thread-arrow { fill: none; stroke: #3a3a3a; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.board-pins .pin-rim { fill: #7d1208; }
+/* the cards are photo prints, pinned up: paper frame, image, then the step */
+.help-card { margin: 0; padding: 10px 10px 16px; background: #faf9f5; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 16px 28px -14px rgba(0, 0, 0, 0.38); }
+.help-card img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; }
+.help-card figcaption { display: grid; gap: 4px; padding: 12px 4px 0; color: var(--ink); }
+.help-step { font-family: var(--f-hand); font-size: 24px; font-weight: 700; line-height: 0.9; color: var(--accent); }
+.help-card b { font-size: clamp(18px, 1.7vw, 22px); font-weight: 900; font-stretch: 115%; line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; }
+.help-line { font-size: 13px; font-stretch: 115%; line-height: 1.35; color: var(--ink-soft); }
+@media (max-width: 760px) {
+  .board--help { grid-template-columns: 1fr; gap: 50px; }
+  .board--help .pinup:nth-of-type(n) { grid-area: auto; justify-self: start; margin: 0; width: 76%; }
+  .board--help .pinup:nth-of-type(even) { justify-self: end; }
+  .board--help .pinup:nth-of-type(n) .pin-spot { left: 50%; }
+  /* phones read top to bottom anyway: the thread tucks behind the cards and the arrows step aside */
+  .board--help .board-string { z-index: auto; }
+  .board--help .thread-arrow, .board--help .thread-arrow-halo { display: none; }
+}
+
+/* what i can help with, roadmap version (index-roadmap.html): a scrapbook road.
+   a paper band with a dashed centre line winds across the four columns and crosses the middle of each,
+   where a red stamp marks the stop; each stop's photo is taped on above or below the road, alternating */
+.roadmap { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); height: 760px; max-width: 1120px; margin: 64px auto 0; }
+.road { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.road path { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+.road-band { stroke: #dcd5c6; stroke-width: 30; }
+.road-line { stroke: #3a3a3a; stroke-width: 1.5; stroke-dasharray: 8 9; }
+.road-note { position: absolute; z-index: 1; font-size: 26px; color: var(--ink-soft); white-space: nowrap; }
+.road-note--start { left: -18px; top: calc(50% + 28px); rotate: -6deg; }
+.road-note--end { right: -16px; top: calc(47% - 62px); rotate: 5deg; color: var(--accent); }
+.stop { position: relative; }
+/* the stamp sits exactly where the road crosses the middle of the column */
+.stop-mark {
+  position: absolute; left: 50%; top: 50%; z-index: 2;
+  display: grid; place-items: center; width: 48px; height: 48px;
+  font-size: 13px; font-weight: 900; font-stretch: 120%; color: var(--accent);
+  background: #faf9f5; border: 2px solid var(--accent); border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%) rotate(-8deg);
+}
+/* a dotted tick from the stamp to its photo */
+.stop::before { content: ""; position: absolute; left: 50%; height: 40px; border-left: 2px dotted #3a3a3a; }
+.stop--up::before { bottom: calc(50% + 24px); }
+.stop--down::before { top: calc(50% + 24px); }
+.scrap { position: absolute; left: 50%; width: min(92%, 232px); margin: 0; padding: 10px 10px 14px; background: #faf9f5; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 16px 28px -14px rgba(0, 0, 0, 0.36); transform: translateX(-50%) rotate(var(--r)); }
+.stop--up .scrap { bottom: calc(50% + 62px); }
+.stop--down .scrap { top: calc(50% + 62px); }
+.scrap-tape { position: absolute; left: 50%; top: -12px; width: 86px; height: 24px; background: var(--tape); transform: translateX(-50%) rotate(-4deg); }
+.stop:nth-child(odd) .scrap-tape { transform: translateX(-50%) rotate(5deg); }
+.scrap img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; }
+.scrap figcaption { display: grid; gap: 4px; padding: 12px 4px 0; color: var(--ink); }
+.scrap b { font-size: clamp(17px, 1.6vw, 21px); font-weight: 900; font-stretch: 115%; line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; }
+@media (max-width: 760px) {
+  /* phones: the road runs down the left edge, stops stacked beside it */
+  .roadmap {
+    display: block; height: auto; margin-top: 40px; padding: 56px 0 50px 66px;
+    background:
+      repeating-linear-gradient(to bottom, #3a3a3a 0 8px, transparent 8px 17px) 32px 0 / 1.5px 100% no-repeat,
+      linear-gradient(#dcd5c6, #dcd5c6) 19px 0 / 28px 100% no-repeat;
+  }
+  .road, .stop::before { display: none; }
+  .road-note--start { left: 64px; top: 8px; rotate: -3deg; font-size: 22px; }
+  .road-note--end { left: 64px; right: auto; top: auto; bottom: 6px; rotate: 0deg; font-size: 22px; }
+  .stop { margin-bottom: 44px; }
+  .stop-mark { left: -33px; top: 46px; }
+  .scrap, .stop--up .scrap, .stop--down .scrap { position: relative; left: auto; top: auto; bottom: auto; width: 100%; transform: rotate(var(--r)); }
+}
+
+/* what i can help with, envelope version (index-envelopes.html): kraft envelopes glued onto the page.
+   layers, back to front: the back with its open flap, the slot (clips the card at the envelope's bottom edge,
+   open above), the photo card, then the front pocket with fold lines, a red postmark and a paper label.
+   at rest the card's top peeks out; hover / focus / .is-open (tap) slides it up and out */
+.envelopes {
+  --env-h: 176px;
+  --card-h: 226px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px clamp(20px, 3vw, 40px);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 250px; /* room for the cards to come out without covering the note */
+}
+.env { position: relative; height: var(--env-h); transform: rotate(var(--r)); cursor: pointer; outline: none; transition: opacity 0.35s, filter 0.35s; }
+.env-back { position: absolute; inset: 0; background: #b99566; border-radius: 4px; }
+/* the opened flap, folded up behind */
+.env-back::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 64px; background: #a9845a; clip-path: polygon(0 100%, 50% 6%, 100% 100%); }
+.env-slot { position: absolute; left: 0; right: 0; bottom: 0; top: -420px; overflow: hidden; pointer-events: none; }
+.env-card {
+  position: absolute; left: 50%; bottom: 0; width: 80%; height: var(--card-h); margin: 0; padding: 9px 9px 12px;
+  background: #faf9f5; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 10px 20px -10px rgba(0, 0, 0, 0.35);
+  /* rest: the top 22px of the card shows above the envelope */
+  transform: translate(-50%, calc(var(--card-h) - var(--env-h) - 22px)) rotate(-2deg);
+  transition: transform 0.6s var(--ease-out);
+}
+.env-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; }
+.env-card figcaption { padding: 10px 2px 0; font-family: var(--f-hand); font-size: 22px; line-height: 1.1; color: var(--ink-soft); }
+.env-front {
+  position: absolute; inset: 0; z-index: 1; display: grid; place-items: end center; padding: 0 12px 16px;
+  background: #cfae80; border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 18px 26px -14px rgba(0, 0, 0, 0.4);
+}
+.env-folds { position: absolute; inset: 0; width: 100%; height: 100%; }
+.env-folds path { fill: none; stroke: rgba(70, 45, 15, 0.28); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.env-post {
+  position: absolute; right: 12px; top: 12px; display: grid; place-items: center; width: 44px; height: 44px;
+  font-size: 13px; font-weight: 900; font-stretch: 120%; color: var(--accent);
+  border: 2px solid var(--accent); border-radius: 50%; transform: rotate(-12deg);
+}
+.env-label { position: relative; margin: 0; padding: 7px 12px 6px; background: #faf9f5; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); rotate: -1.5deg; text-align: center; }
+.env-label b { display: block; font-size: clamp(14px, 1.3vw, 17px); font-weight: 900; font-stretch: 115%; line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase; }
+/* the card is a letter: ruled paper, a red margin line, a handwritten list of what the service covers */
+.env-letter {
+  width: 92%;
+  padding: 14px 10px 12px 34px;
+  background:
+    linear-gradient(90deg, transparent 24px, rgba(216, 32, 15, 0.45) 24px 25.5px, transparent 25.5px),
+    repeating-linear-gradient(to bottom, transparent 0 27px, rgba(60, 90, 140, 0.22) 27px 28px) 0 12px / 100% 100%,
+    #fbfaf6;
+}
+.env-letter-head { margin: 0 0 6px; font-family: var(--f-hand); font-size: 20px; font-weight: 700; line-height: 1; color: var(--accent); }
+.env-letter ul { margin: 0; padding: 0; list-style: none; }
+.env-letter li { font-family: var(--f-hand); font-size: 19px; line-height: 28px; color: var(--ink); white-space: nowrap; }
+.env-letter li::before { content: "✦ "; font-size: 0.7em; color: var(--accent); }
+/* out it comes: the card rises until only its bottom edge is still tucked in */
+.env:focus-visible .env-card,
+.env.is-open .env-card { transform: translate(-50%, calc(-1 * var(--env-h) + 18px)) rotate(1.5deg); }
+@media (hover: hover) {
+  .env:hover .env-card { transform: translate(-50%, calc(-1 * var(--env-h) + 18px)) rotate(1.5deg); }
+  .envelopes:has(.env:hover) .env:not(:hover) { opacity: 0.55; filter: blur(2px); }
+}
+.env:hover, .env.is-open, .env:focus-visible { z-index: 2; }
+@media (max-width: 1200px) {
+  .envelopes { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 190px; max-width: 620px; }
+}
+@media (max-width: 560px) {
+  /* phones: one column; a tapped card slides up over the envelope above it, so the rows can stay close */
+  .envelopes { --env-h: 150px; --card-h: 226px; grid-template-columns: 1fr; row-gap: 84px; max-width: 300px; padding-top: 200px; }
+}
+
 /* poster wall */
 .posters { padding-top: clamp(90px, 10vw, 150px); }
 .posters--page { padding: 20px var(--gutter) clamp(100px, 12vw, 160px); }

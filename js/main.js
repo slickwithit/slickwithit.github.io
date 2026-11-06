@@ -76,6 +76,53 @@ if (certsMore) {
   });
 }
 
+/* ---------- pinboard: one red string from pin to pin, 01 → 06 ---------- */
+// measured from the layout (offsets, so tilts and hover lifts don't move the pins), redrawn whenever the board resizes
+const board = $(".board");
+if (board) {
+  const svg = $(".board-string", board);
+  const path = $("path", svg);
+  const pinsLayer = $(".board-pins", board);
+  const spots = $$(".pinup", board).map((p) => [p, $(".pin-spot", p)]);
+  const drawString = () => {
+    const pts = spots.map(([p, spot]) => [p.offsetLeft + spot.offsetLeft, p.offsetTop + spot.offsetTop]);
+    const box = `0 0 ${board.offsetWidth} ${board.offsetHeight}`;
+    svg.setAttribute("viewBox", box);
+    pinsLayer.setAttribute("viewBox", box);
+    // each stretch sags a little under its own weight
+    path.setAttribute("d", pts.map(([x, y], i) => {
+      if (!i) return `M${x} ${y}`;
+      const [px, py] = pts[i - 1];
+      const sag = Math.min(40, Math.hypot(x - px, y - py) * 0.08);
+      return `Q${(px + x) / 2} ${(py + y) / 2 + sag} ${x} ${y}`;
+    }).join(" "));
+    // walkthrough boards get a small arrow halfway along each stretch, pointing to the next step
+    const arrows = board.hasAttribute("data-arrows") ? pts.slice(1).map(([x, y], i) => {
+      const [px, py] = pts[i];
+      const sag = Math.min(40, Math.hypot(x - px, y - py) * 0.08);
+      const mx = (px + x) / 2, my = (py + y) / 2 + sag / 2; // midpoint of the sagging curve
+      const deg = Math.atan2(y - py, x - px) * 180 / Math.PI;
+      const at = `transform="translate(${mx} ${my}) rotate(${deg})"`;
+      return `<path class="thread-arrow-halo" d="M-8 -7 L1 0 L-8 7" ${at} /><path class="thread-arrow" d="M-8 -7 L1 0 L-8 7" ${at} />`;
+    }).join("") : "";
+    pinsLayer.innerHTML = arrows + pts.map(([x, y]) =>
+      `<circle class="pin-shadow" cx="${x + 2}" cy="${y + 3}" r="8" /><circle class="pin-rim" cx="${x}" cy="${y}" r="8" /><circle cx="${x}" cy="${y - 0.8}" r="7" /><circle class="pin-shine" cx="${x - 2.4}" cy="${y - 3}" r="2.4" />`
+    ).join("");
+  };
+  drawString();
+  new ResizeObserver(drawString).observe(board);
+  if (document.fonts) document.fonts.ready.then(drawString);
+}
+
+/* ---------- envelopes: tap one to slide its card out (hover does it on laptops), tap again to tuck it back ---------- */
+$$(".env").forEach((env) => {
+  env.addEventListener("click", () => {
+    const open = !env.classList.contains("is-open");
+    $$(".env.is-open").forEach((e) => e.classList.remove("is-open"));
+    env.classList.toggle("is-open", open);
+  });
+});
+
 /* ---------- feature clips: loop silently while on screen, pause when scrolled away ---------- */
 const clips = $$("video[data-inview]");
 if (clips.length && "IntersectionObserver" in window) {
@@ -417,6 +464,27 @@ if (window.gsap && !reduceMotion) {
     });
   }
 
+  /* project tickets: each thread draws itself across, then its tickets drop onto it and swing to rest */
+  $$(".line").forEach((line) => {
+    // on phones .line is display: contents (no box), so trigger off the whole row instead
+    const trigger = getComputedStyle(line).display === "contents" ? $(".lines") : line;
+    // fromTo + immediateRender: false everywhere, so the thread and tickets are visible at rest
+    // and only get hidden at the moment the drop-in actually plays
+    gsap.timeline({ scrollTrigger: { trigger, start: "top 95%" } })
+      .fromTo($(".thread path", line), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", immediateRender: false })
+      .fromTo($$(".hang", line), { y: -50, opacity: 0, rotate: (i) => (i % 2 ? 14 : -14) },
+        { y: 0, opacity: 1, rotate: (i, el) => parseFloat(getComputedStyle(el).getPropertyValue("--r")) || 0, duration: 1.6, stagger: 0.12, ease: "elastic.out(1, 0.4)", immediateRender: false }, "-=0.35");
+  });
+
+  /* pinboard: the tickets drop onto the board, then the string runs from pin to pin and the pins press in */
+  if ($(".board")) {
+    gsap.timeline({ scrollTrigger: { trigger: ".board", start: "top 95%" } })
+      .fromTo(".pinup", { y: 80, opacity: 0, rotate: (i) => (i % 2 ? 8 : -8) },
+        { y: 0, opacity: 1, rotate: (i, el) => parseFloat(getComputedStyle(el).getPropertyValue("--r")) || 0, duration: 1, stagger: 0.1, ease: "expo.out", immediateRender: false })
+      // the thread stays visible by default; it only gets hidden at the moment the draw-in actually plays
+      .fromTo(".board-string path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.6, ease: "power1.inOut", immediateRender: false }, "-=0.5");
+  }
+
   /* poster wall: posters fly in from a messy pile and settle on the wall */
   if ($(".pins")) {
     gsap.from(".pins .pin", {
@@ -466,6 +534,30 @@ if (window.gsap && !reduceMotion) {
   $$(".page-write").forEach((el) => {
     gsap.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" },
       { clipPath: "inset(-20% 0% -20% 0)", duration: 1.1, ease: "power2.inOut", scrollTrigger: { trigger: el, start: "top 85%" } });
+  });
+
+  /* hung tickets: on hover the ticket slides out of its clip, straightens and comes toward you */
+  $$(".hang").forEach((hang) => {
+    const ticket = $(".ticket", hang);
+    const base = parseFloat(getComputedStyle(hang).getPropertyValue("--r")) || 0;
+    hang.addEventListener("mouseenter", () => {
+      gsap.to(ticket, { y: 36, scale: 1.3, rotate: -base, duration: 0.55, ease: "power3.out" });
+    });
+    hang.addEventListener("mouseleave", () => {
+      gsap.to(ticket, { y: 0, scale: 1, rotate: 0, duration: 0.9, ease: "elastic.out(1, 0.5)" });
+    });
+  });
+
+  /* pinboard: on hover the ticket (or help card) lifts off its pin, straightens and comes toward you */
+  $$(".pinup").forEach((pinup) => {
+    const ticket = $(".ticket, .help-card", pinup);
+    const base = parseFloat(getComputedStyle(pinup).getPropertyValue("--r")) || 0;
+    pinup.addEventListener("mouseenter", () => {
+      gsap.to(ticket, { y: -14, scale: 1.06, rotate: -base, duration: 0.5, ease: "power3.out" });
+    });
+    pinup.addEventListener("mouseleave", () => {
+      gsap.to(ticket, { y: 0, scale: 1, rotate: 0, duration: 0.8, ease: "elastic.out(1, 0.5)" });
+    });
   });
 
   /* cards tilt toward the cursor */
