@@ -63,6 +63,19 @@ $$(".chip").forEach((chip) => {
   });
 });
 
+/* ---------- certifications: top 3 show, "+ 5 more" opens the rest ---------- */
+const certsMore = $(".certs-more");
+if (certsMore) {
+  const extras = $$(".cert-extra");
+  certsMore.addEventListener("click", () => {
+    const open = certsMore.getAttribute("aria-expanded") !== "true";
+    extras.forEach((li) => { li.hidden = !open; });
+    certsMore.setAttribute("aria-expanded", open);
+    certsMore.textContent = open ? "show less" : `+ ${extras.length} more`;
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  });
+}
+
 /* ---------- feature clips: loop silently while on screen, pause when scrolled away ---------- */
 const clips = $$("video[data-inview]");
 if (clips.length && "IntersectionObserver" in window) {

@@ -422,6 +422,8 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 .cert-by { color: #8a8a8a; white-space: nowrap; }
 .cert-arrow { color: var(--accent); }
 .certs a:hover, .certs a:focus-visible { padding-left: 6px; color: var(--ink); }
+.certs-more { margin-top: 10px; padding: 0; border: 0; background: none; font: inherit; font-size: 13px; font-weight: 700; font-stretch: 120%; color: var(--accent); cursor: pointer; }
+.certs-more:hover, .certs-more:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
 
 .strengths { margin: 20px 0 0; padding: 0; list-style: none; }
 .strengths li { font-size: 15px; font-weight: 700; line-height: 1.9; }
