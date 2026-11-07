@@ -584,7 +584,9 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 /* each peg sits where the sagging thread passes over it */
 .hang { position: relative; padding-top: 34px; margin-top: 12px; transform: rotate(var(--r)); transform-origin: 50% 16px; transition: opacity 0.35s, filter 0.35s; }
 .hang:nth-child(2) { margin-top: 24px; }
-.peg { position: absolute; left: 50%; top: 0; z-index: 2; width: 16px; height: 54px; translate: -50% 0; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3)); }
+.peg { position: absolute; left: 50%; top: 0; z-index: 2; width: 16px; height: 54px; translate: -50% 0; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3)); transition: opacity 0.25s; }
+/* once the ticket slides out of the clip and magnifies, the clip is no longer holding it, so it goes */
+.hang:hover .peg { opacity: 0; }
 /* tickets with a notch at the top centre get pegged beside the notch, not over the hole */
 .hang:has(.ticket-paper--b) { transform-origin: 26% 16px; }
 .hang:has(.ticket-paper--b) .peg { left: 26%; }
@@ -847,7 +849,8 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
   --card-h: 226px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 40px clamp(20px, 3vw, 40px);
+  --gap: clamp(20px, 3vw, 40px);
+  gap: 40px var(--gap);
   max-width: 1100px;
   margin: 0 auto;
   padding-top: 250px; /* room for the cards to come out without covering the note */
@@ -880,6 +883,11 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 }
 .env-label { position: relative; margin: 0; padding: 7px 12px 6px; background: #faf9f5; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); rotate: -1.5deg; text-align: center; }
 .env-label b { display: block; font-size: clamp(14px, 1.3vw, 17px); font-weight: 900; font-stretch: 115%; line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase; }
+/* the step number, handwritten on the label */
+.env-step { display: block; margin-bottom: 2px; font-family: var(--f-hand); font-size: 20px; font-weight: 700; line-height: 1; color: var(--accent); }
+/* a drawn arrow in the gap, from each envelope to the next one */
+.env-arrow { position: absolute; left: 100%; top: 44%; z-index: 1; width: var(--gap); height: calc(var(--gap) * 0.6); overflow: visible; pointer-events: none; }
+.env-arrow path { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 /* the card is a letter: ruled paper, a red margin line, a handwritten list of what the service covers */
 .env-letter {
   width: 92%;
@@ -903,10 +911,15 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 .env:hover, .env.is-open, .env:focus-visible { z-index: 2; }
 @media (max-width: 1200px) {
   .envelopes { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 190px; max-width: 620px; }
+  /* two per row: step 2 to 3 wraps to the next row, the numbers carry it */
+  .env:nth-child(2) .env-arrow { display: none; }
 }
 @media (max-width: 560px) {
   /* phones: one column; a tapped card slides up over the envelope above it, so the rows can stay close */
   .envelopes { --env-h: 150px; --card-h: 226px; grid-template-columns: 1fr; row-gap: 84px; max-width: 300px; padding-top: 200px; }
+  /* one column: the arrows point down to the next envelope, off to the left where its open flap is low */
+  .env:nth-child(2) .env-arrow { display: block; }
+  .env-arrow { left: 4%; top: calc(100% + 36px); width: 50px; height: 26px; translate: 0 -50%; rotate: 90deg; }
 }
 
 /* poster wall */
