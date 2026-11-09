@@ -1015,6 +1015,24 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 .case-numbers { padding-top: 0; }
 .case-numbers .stat-board { margin-top: 44px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .case-numbers .stat-num { font-size: clamp(34px, 3.8vw, 64px); }
+/* ashwin's / optima's account switch, same pill look as the work filter chips */
+.acct-switch { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px; }
+.acct-tab {
+  padding: 9px 16px 8px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.acct-tab:hover { background: var(--paper-2); }
+.acct-tab.is-on { background: var(--ink); color: var(--paper-2); }
+.acct-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .stat-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

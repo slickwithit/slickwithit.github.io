@@ -257,9 +257,10 @@ function drawGrowthChart(fig) {
   const xAt = (i) => ((i + 0.5) / months.length) * 100;
   const yAt = (v) => 100 - (v / max) * 100;
   const peak = views.indexOf(Math.max(...views));
-  const labelled = new Set([0, peak, views.length - 1]); // direct labels: where it started, the peak, where it is now
+  const note = fig.dataset.note ? +fig.dataset.note : peak; // "took off here" points at the peak unless the figure names a month
+  const labelled = new Set([0, note, peak, views.length - 1]); // direct labels: where it started, where it took off, the peak, where it is now
   line.setAttribute("d", views.map((v, i) => (i ? "L" : "M") + xAt(i).toFixed(2) + " " + yAt(v).toFixed(2)).join(" "));
-  $(".chart-note", fig).style.right = 100 - xAt(peak) + 3 + "%";
+  $(".chart-note", fig).style.right = 100 - xAt(note) + 3 + "%";
 
   const rows = $("tbody", fig);
   const axis = $(".chart-x", fig);
@@ -309,17 +310,66 @@ function drawGrowthChart(fig) {
     });
     rows.append(tr);
   });
-
-  if (reduceMotion || typeof gsap === "undefined") return;
-  // the chart stretches to fit (non-scaling stroke), so measure the dash in screen pixels
-  const w = area.clientWidth / 100, h = area.clientHeight / 100;
-  const len = views.reduce((sum, v, i) => (i ? sum + Math.hypot((xAt(i) - xAt(i - 1)) * w, (yAt(v) - yAt(views[i - 1])) * h) : 0), 0) * 1.1;
-  const st = { trigger: fig, start: "top 75%" };
-  gsap.fromTo(line, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 2, ease: "power2.inOut", scrollTrigger: st });
-  gsap.from($$(".chart-dot", fig), { scale: 0, duration: 0.4, ease: "back.out(3)", stagger: 0.2, delay: 0.3, clearProps: "transform", scrollTrigger: st });
-  gsap.from($$(".chart-val", fig), { opacity: 0, duration: 0.5, stagger: 0.3, delay: 1, scrollTrigger: st });
-  gsap.from($(".chart-note", fig), { opacity: 0, x: -20, duration: 0.8, delay: 2, scrollTrigger: st });
 }
+
+/* the line draws itself in: on scroll the first time, or right away (now = true) when its account tab is opened */
+function playGrowthChart(fig, now) {
+  const line = $(".chart-line", fig);
+  // the chart stretches to fit (non-scaling stroke), so measure the dash in screen pixels, dot to dot
+  const dots = $$(".chart-dot", fig).map((d) => [d.parentElement.offsetLeft, d.offsetTop]);
+  const len = dots.reduce((sum, p, i) => (i ? sum + Math.hypot(p[0] - dots[i - 1][0], p[1] - dots[i - 1][1]) : 0), 0) * 1.1;
+  gsap.timeline(now ? {} : { scrollTrigger: { trigger: fig, start: "top 75%" } })
+    .fromTo(line, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 2, ease: "power2.inOut" }, 0)
+    .fromTo($$(".chart-dot", fig), { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(3)", stagger: 0.2, clearProps: "transform" }, 0.3)
+    .fromTo($$(".chart-val", fig), { opacity: 0 }, { opacity: 1, duration: 0.5, stagger: 0.3 }, 1)
+    .fromTo($(".chart-note", fig), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.8 }, 2);
+}
+
+/* numbers count up from 0 to whatever is in data-count */
+function countUp(el, now) {
+  const end = parseFloat(el.dataset.count);
+  if (Number.isNaN(end)) return;
+  const decimals = (el.dataset.count.split(".")[1] || "").length;
+  const pre = el.dataset.prefix || "";
+  const suf = el.dataset.suffix || "";
+  const n = { v: 0 };
+  gsap.to(n, {
+    v: end, duration: now ? 1.2 : 1.8, ease: "power3.out",
+    scrollTrigger: now ? undefined : { trigger: el, start: "top 90%" },
+    onUpdate: () => { el.textContent = pre + n.v.toFixed(decimals) + suf; },
+  });
+}
+
+/* charts are built straight away, so they show even with motion turned off */
+$$(".growth-chart[data-views]").forEach(drawGrowthChart);
+
+/* ---------- instagram numbers: switch between ashwin's and optima's account ---------- */
+const acctTabs = $$(".acct-tab");
+const openAcct = (tab) => {
+  acctTabs.forEach((t) => {
+    const on = t === tab;
+    t.classList.toggle("is-on", on);
+    t.setAttribute("aria-selected", on);
+    t.tabIndex = on ? 0 : -1;
+    $("#" + t.getAttribute("aria-controls")).hidden = !on;
+  });
+  if (reduceMotion || !window.gsap) return;
+  const panel = $("#" + tab.getAttribute("aria-controls"));
+  gsap.fromTo($$(".stat-note", panel), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.07, ease: "back.out(1.8)" });
+  $$(".stat-num[data-count]", panel).forEach((el) => countUp(el, true));
+  $$(".growth-chart[data-views]", panel).forEach((fig) => playGrowthChart(fig, true));
+  ScrollTrigger.refresh();
+};
+acctTabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => { if (!tab.classList.contains("is-on")) openAcct(tab); });
+  // arrow keys move between the tabs, like any tab list
+  tab.addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const next = acctTabs[(i + (e.key === "ArrowRight" ? 1 : acctTabs.length - 1)) % acctTabs.length];
+    next.focus();
+    openAcct(next);
+  });
+});
 
 /* ---------- hover the photo → the next thought types itself into a note ---------- */
 const photo = $(".hello-photo");
@@ -502,26 +552,16 @@ if (window.gsap && !reduceMotion) {
 
   /* by the numbers: notes slap on, numbers count up, the growth line draws itself */
   if ($(".numbers")) {
-    gsap.from(".stat-note", {
-      scrollTrigger: { trigger: ".stat-board", start: "top 85%" },
+    // only the account that's showing animates on scroll; the hidden one plays when its tab is opened
+    const shown = (el) => !el.closest("[hidden]");
+    const board = $$(".stat-board").find(shown);
+    gsap.from($$(".stat-note").filter(shown), {
+      scrollTrigger: { trigger: board, start: "top 85%" },
       y: 80, rotate: (i) => [-14, 10, -8, 12][i % 4], scale: 1.15, opacity: 0, duration: 0.9, stagger: 0.1, ease: "back.out(1.8)",
     });
     // count-up only runs once a real number is filled into data-count
-    $$(".stat-num[data-count]").forEach((el) => {
-      const end = parseFloat(el.dataset.count);
-      if (Number.isNaN(end)) return;
-      const decimals = (el.dataset.count.split(".")[1] || "").length;
-      const pre = el.dataset.prefix || "";
-      const suf = el.dataset.suffix || "";
-      const n = { v: 0 };
-      gsap.to(n, {
-        v: end, duration: 1.8, ease: "power3.out",
-        scrollTrigger: { trigger: el, start: "top 90%" },
-        onUpdate: () => { el.textContent = pre + n.v.toFixed(decimals) + suf; },
-      });
-    });
-    const chart = $(".growth-chart[data-views]");
-    if (chart) drawGrowthChart(chart);
+    $$(".stat-num[data-count]").filter(shown).forEach((el) => countUp(el));
+    $$(".growth-chart[data-views]").filter(shown).forEach((fig) => playGrowthChart(fig));
   }
 
   /* contact + case study blocks */

@@ -134,8 +134,15 @@
         </div>
         <p class="case-text" data-reveal>Sign-ups on the site grew in step with Ashwin's followers, which is how we know where they came from. Here's that Instagram side, since March:</p>
 
-        <!-- source: instagram insights daily exports in data/ashwin, summed by month. mar 2026 is when i joined. views + interactions run to nov 7 (oct 1 to nov 7 from the meta business suite pdfs). followers = his real total on nov 9 (10K), not summed follows, since follows never subtract unfollows -->
         <div class="numbers case-numbers">
+          <!-- switch between the two accounts: each tab shows its own panel of cards + chart -->
+          <div class="acct-switch" role="tablist" aria-label="Instagram account">
+            <button class="acct-tab is-on" type="button" role="tab" id="tab-ashwin" aria-selected="true" aria-controls="acct-ashwin">Ashwin's account</button>
+            <button class="acct-tab" type="button" role="tab" id="tab-optima" aria-selected="false" aria-controls="acct-optima" tabindex="-1">Optima's account</button>
+          </div>
+
+          <!-- source: instagram insights daily exports in data/ashwin, summed by month. mar 2026 is when i joined. views + interactions run to nov 7 (oct 1 to nov 7 from the meta business suite pdfs). followers = his real total on nov 9 (10K), not summed follows, since follows never subtract unfollows -->
+          <div class="acct" id="acct-ashwin" role="tabpanel" aria-labelledby="tab-ashwin">
           <div class="stat-board">
             <div class="stat-note" style="--r:-2.5deg">
               <i class="tape"></i>
@@ -187,6 +194,62 @@
               <tbody></tbody>
             </table>
           </figure>
+          </div>
+
+          <!-- source: data/optima daily exports (old csvs to nov 2, the _1 csvs for oct 1 to nov 7), summed by month. followers = real total on nov 9 (2,914). 16× = oct 237,254 views vs mar 14,364 -->
+          <div class="acct" id="acct-optima" role="tabpanel" aria-labelledby="tab-optima" hidden>
+          <div class="stat-board">
+            <div class="stat-note" style="--r:-2.5deg">
+              <i class="tape"></i>
+              <span class="platform mono">Instagram</span>
+              <b class="stat-num" data-count="2.9" data-suffix="K">2.9K</b>
+              <span class="stat-label">followers now</span>
+            </div>
+            <div class="stat-note" style="--r:1.5deg">
+              <i class="tape"></i>
+              <span class="platform mono">Instagram</span>
+              <b class="stat-num" data-count="668" data-suffix="K">668K</b>
+              <span class="stat-label">views since march</span>
+            </div>
+            <div class="stat-note" style="--r:-1deg">
+              <i class="tape"></i>
+              <span class="platform mono">Instagram</span>
+              <b class="stat-num" data-count="52" data-suffix="K">52K</b>
+              <span class="stat-label">likes, comments, shares &amp; saves</span>
+            </div>
+            <div class="stat-note stat-note--red" style="--r:2.5deg">
+              <i class="tape"></i>
+              <span class="platform mono">Mar → Oct</span>
+              <b class="stat-num" data-count="16" data-suffix="×">16×</b>
+              <span class="stat-label">more views a month</span>
+            </div>
+          </div>
+
+          <!-- monthly views + new follows, mar → oct 2026. data-note = which month the "took off" note points at (sep) -->
+          <figure class="growth-chart" style="--r:0.8deg" data-months="Mar,Apr,May,Jun,Jul,Aug,Sep,Oct" data-views="14364,45532,12786,29127,40196,18434,198460,237254" data-follows="38,75,82,105,94,64,1433,1337" data-max="250000" data-note="6">
+            <i class="tape"></i>
+            <figcaption class="mono">Monthly views · Optima's Instagram · Mar → Oct 2026</figcaption>
+            <div class="chart">
+              <div class="chart-y mono" aria-hidden="true"><span>250K</span><span>125K</span><span>0</span></div>
+              <div class="chart-area">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <g class="chart-grid"><line x1="0" y1="0" x2="100" y2="0" /><line x1="0" y1="50" x2="100" y2="50" /><line x1="0" y1="100" x2="100" y2="100" /></g>
+                  <path class="chart-line" d="" />
+                </svg>
+                <span class="chart-cross" aria-hidden="true"></span>
+                <div class="chart-points"></div>
+                <div class="chart-tip mono" role="status"><b></b><span></span></div>
+                <span class="hand chart-note">took off here ↗</span>
+              </div>
+              <div class="chart-x mono" aria-hidden="true"></div>
+            </div>
+            <table class="visually-hidden">
+              <caption>Monthly views and new follows on Optima's Instagram, March to October 2026</caption>
+              <thead><tr><th>Month</th><th>Views</th><th>New follows</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </figure>
+          </div>
 
         </div>
 
