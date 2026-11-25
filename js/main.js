@@ -134,6 +134,43 @@ if (clips.length && "IntersectionObserver" in window) {
 }
 
 /* ---------- poster lightbox ---------- */
+// data-layout="carousel": like an instagram post. the first image is the main one, the rest are iterations.
+// tap the image (or the arrows, arrow keys, a swipe) for the next one; dots + a 1/3 counter show where you are.
+function carousel(imgs, ar) {
+  const n = imgs.length;
+  let i = 0;
+  const wrap = document.createElement("div");
+  wrap.className = "carousel";
+  wrap.style.setProperty("--ar", ar || 1);
+  wrap.innerHTML = '<div class="carousel-frame"><div class="carousel-track"></div><span class="carousel-count mono"></span>' +
+    '<button class="carousel-arrow carousel-arrow--prev" aria-label="Previous version">‹</button>' +
+    '<button class="carousel-arrow carousel-arrow--next" aria-label="Next version">›</button></div>' +
+    '<div class="carousel-dots">' + "<i></i>".repeat(n) + "</div>";
+  $(".carousel-track", wrap).append(...imgs);
+  const go = (to) => {
+    i = (to + n) % n;
+    $(".carousel-track", wrap).style.transform = "translateX(" + -100 * i + "%)";
+    $(".carousel-count", wrap).textContent = i + 1 + "/" + n;
+    $$(".carousel-dots i", wrap).forEach((d, k) => d.classList.toggle("on", k === i));
+  };
+  wrap.step = (d) => go(i + d);
+  let x0 = null;
+  const frame = $(".carousel-frame", wrap);
+  frame.addEventListener("pointerdown", (e) => (x0 = e.clientX));
+  frame.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const dx = x0 == null ? 0 : e.clientX - x0;
+    if (e.target.closest(".carousel-arrow--prev") || dx > 40) wrap.step(-1);
+    else wrap.step(1);
+  });
+  $(".carousel-dots", wrap).addEventListener("click", (e) => e.stopPropagation());
+  go(0);
+  return wrap;
+}
+document.addEventListener("keydown", (e) => {
+  const c = $(".lightbox[open] .carousel");
+  if (c && (e.key === "ArrowRight" || e.key === "ArrowLeft")) c.step(e.key === "ArrowRight" ? 1 : -1);
+});
 const lightbox = $(".lightbox");
 if (lightbox) {
   const box = $(".lightbox-imgs", lightbox);
@@ -141,14 +178,31 @@ if (lightbox) {
     btn.addEventListener("click", () => {
       // data-full="a.jpg|b.jpg" shows both (front + back); data-layout="stack" puts wide designs one above the other
       const srcs = btn.dataset.full.split("|");
-      box.replaceChildren(...srcs.map((src) => Object.assign(new Image(), { src, alt: $("img", btn)?.alt || "" })));
+      const imgs = srcs.map((src) => Object.assign(new Image(), { src, alt: $("img", btn)?.alt || "" }));
+      if (btn.dataset.layout === "carousel" && srcs.length > 1) box.replaceChildren(carousel(imgs, btn.dataset.ar));
+      else box.replaceChildren(...imgs);
       box.dataset.layout = srcs.length > 1 ? btn.dataset.layout || "row" : "";
-      $(".lightbox-concept", lightbox).textContent = btn.dataset.concept || "";
+      const concept = $(".lightbox-concept", lightbox);
+      if (concept) concept.textContent = btn.dataset.concept || "";
       lightbox.classList.toggle("has-concept", !!btn.dataset.concept);
+      // data-video: the workflow recording plays beside the design (the click counts as a gesture, so sound is allowed)
+      const slot = $(".lightbox-video", lightbox);
+      if (slot) {
+        slot.replaceChildren();
+        if (btn.dataset.video) {
+          const v = Object.assign(document.createElement("video"), { src: btn.dataset.video, poster: btn.dataset.poster || "", controls: true, loop: true, playsInline: true, preload: "auto" });
+          v.addEventListener("click", (e) => e.stopPropagation());
+          slot.append(v);
+        }
+      }
+      lightbox.classList.toggle("has-video", !!btn.dataset.video);
       lightbox.showModal();
+      const v = slot && $("video", slot);
+      if (v) v.play().catch(() => { v.muted = true; v.play().catch(() => {}); });
     });
   });
   lightbox.addEventListener("click", () => lightbox.close());
+  lightbox.addEventListener("close", () => $$(".lightbox-video video", lightbox).forEach((v) => { v.pause(); v.remove(); }));
 }
 
 /* ---------- the cat: a note that types itself, and a reaction on every click ---------- */
@@ -537,16 +591,20 @@ if (window.gsap && !reduceMotion) {
 
   /* poster wall: posters fly in from a messy pile and settle on the wall */
   if ($(".pins")) {
-    gsap.from(".pins .pin", {
-      scrollTrigger: { trigger: ".pins", start: "top 80%" },
+    // fromTo + immediateRender:false so the posters are visible at rest even if this never fires
+    gsap.fromTo(".pins .pin", {
       x: (i) => (i % 3 - 1) * -160,
       y: 220,
       rotate: (i) => [-24, 18, -12, 22, -18, 14][i % 6],
       scale: 0.8,
       opacity: 0,
+    }, {
+      scrollTrigger: { trigger: ".pins", start: "top 80%" },
+      x: 0, y: 0, rotate: (i, el) => getComputedStyle(el).getPropertyValue("--r") || 0, scale: 1, opacity: 1,
       duration: 1.3,
       stagger: 0.1,
       ease: "expo.out",
+      immediateRender: false,
     });
   }
 
