@@ -1,0 +1,122 @@
+/* D = the behance flow. one opener, then each chapter runs the same 3-beat loop:
+   1. intro slide: label row, big lowercase title, the brief + the result, a preview collage with a handwritten number
+   2. the work: edge-to-edge rows, no captions on the page (tap any piece for its caption)
+   3. the closer: one big shot that ends the chapter
+   used by branding-d.html */
+
+.fl { padding: clamp(100px, 11vw, 140px) var(--gutter) 0; }
+
+/* label row: "chapter 01 ........ brand identity" */
+.fl-label { display: flex; justify-content: space-between; gap: 16px; padding-top: 14px; border-top: 1.5px solid var(--ink); font-size: 12px; }
+
+/* ---------- opener ---------- */
+.fl-open { position: relative; padding: clamp(40px, 7vw, 100px) 0 clamp(60px, 8vw, 110px); text-align: center; }
+.fl-open h1 { margin: 0; font-size: clamp(64px, 13vw, 210px); font-weight: 900; font-stretch: 112%; line-height: 0.86; letter-spacing: -0.045em; }
+.fl-open h1 em { display: block; margin-bottom: -0.08em; font-size: 0.42em; font-weight: 700; letter-spacing: 0; color: var(--accent); transform: rotate(-4deg); }
+.fl-open .fl-sub { max-width: 52ch; margin: 22px auto 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.5; }
+.fl-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 40px; margin: 26px 0 0; padding: 0; list-style: none; font-size: 15px; }
+.fl-stats b { font-weight: 900; font-size: 1.4em; margin-right: 4px; }
+
+/* chapter index: four little "folders" that jump to each chapter */
+.fl-index { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 900px; margin: clamp(40px, 5vw, 64px) auto 0; }
+.fl-index a { display: grid; gap: 8px; justify-items: center; font-size: 12px; transition: transform 0.35s var(--ease-out); }
+.fl-index a:hover { transform: translateY(-4px) rotate(-2deg); }
+.fl-index i { display: block; width: 100%; aspect-ratio: 1.25; overflow: hidden; border: 1.5px solid var(--ink); border-radius: 10px; box-shadow: 3px 4px 0 var(--ink); background: #fff; }
+.fl-index img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.fl-index .hl-swatch { display: grid; place-items: center; width: 100%; height: 100%; background: #0066ff; color: #fff; font-weight: 900; font-size: 15px; line-height: 0.95; text-align: center; }
+.fl-hint { margin: 22px 0 0; font-size: 22px; color: var(--ink-soft); }
+
+/* project divider (a page with more than one project): same as the opener, a size down, with room above */
+.fl-open--project { margin-top: clamp(80px, 10vw, 150px); padding-bottom: 0; }
+.fl-open--project h1 { font-size: clamp(56px, 10vw, 160px); }
+.fl-index--projects { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 620px; }
+
+/* ---------- beat 1: intro slide ---------- */
+.fl-ch { padding-top: clamp(70px, 9vw, 130px); scroll-margin-top: 70px; }
+.fl-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: center; padding: clamp(34px, 5vw, 70px) 0 clamp(40px, 5vw, 70px); }
+.fl-intro h2 { margin: 0 0 22px; font-size: clamp(48px, 6vw, 96px); font-weight: 900; font-stretch: 108%; line-height: 0.88; letter-spacing: -0.04em; }
+.fl-intro h2 .star { display: inline-block; margin-left: 0.12em; font-size: 0.45em; vertical-align: top; color: var(--accent); }
+.fl-intro p { max-width: 46ch; margin: 0 0 14px; font-size: clamp(16px, 1.35vw, 19px); line-height: 1.5; }
+.fl-intro p b { font-weight: 800; }
+
+/* the preview collage + the handwritten chapter number on its corner */
+.fl-preview { position: relative; margin: 0 0 28px; }
+.fl-collage { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; background: var(--ink); box-shadow: 0 24px 50px -26px rgba(0, 0, 0, 0.55); }
+.fl-collage img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; background: #ddd; }
+.fl-collage--2x3 { grid-template-columns: repeat(3, 1fr); }
+.fl-collage--print { grid-template-columns: 0.75fr 1fr; grid-template-rows: 1fr 1fr; aspect-ratio: 1.15; }
+.fl-collage--print img { aspect-ratio: auto; height: 100%; }
+.fl-collage--print img:first-child { grid-row: span 2; }
+.fl-intro .fl-num { position: absolute; right: -14px; bottom: -40px; max-width: none; margin: 0; font-family: var(--f-hand); font-weight: 700; font-size: clamp(44px, 5vw, 76px); line-height: 1; color: var(--ink); transform: rotate(-9deg); text-shadow: 3px 0 var(--paper), -3px 0 var(--paper), 0 3px var(--paper), 0 -3px var(--paper), 2px 2px var(--paper), -2px -2px var(--paper), 2px -2px var(--paper), -2px 2px var(--paper); pointer-events: none; }
+
+/* ---------- beat 2: the work, edge to edge ---------- */
+/* each row is justified: every piece gets flex-grow = its aspect ratio, so the row shares one height and fills the width */
+.fl-work { display: grid; gap: 4px; margin: 0 calc(var(--gutter) * -1); }
+.fl-row { display: flex; gap: 4px; }
+.fl-piece { position: relative; flex: var(--ar) 1 0; aspect-ratio: var(--ar); min-width: 0; padding: 0; border: 0; background: #ddd; cursor: zoom-in; overflow: hidden; }
+.fl-piece img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease-out); }
+.fl-piece:hover img { transform: scale(1.03); }
+.fl-piece::after { content: attr(data-label); position: absolute; left: 12px; bottom: 12px; padding: 6px 10px; background: var(--paper-2); color: var(--ink); font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0; transform: translateY(4px); transition: opacity 0.25s, transform 0.25s; }
+.fl-piece:hover::after, .fl-piece:focus-visible::after { opacity: 1; transform: none; }
+.fl-piece .pin-multi { position: absolute; top: 12px; right: 12px; width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 2; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5)); }
+
+/* the system has no photos: three built panels instead */
+.fl-panel { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: center; aspect-ratio: 0.9; padding: clamp(16px, 2.4vw, 36px); background: #fff; cursor: default; }
+.fl-panel .lockup { aspect-ratio: auto; background: none; font-size: clamp(40px, 5vw, 76px); }
+.fl-panel--blue { background: #0066ff; }
+.fl-panel--blue .lockup, .fl-panel--blue .lockup span { color: #fff; }
+.fl-panel .swatches { padding: 0; }
+.fl-panel .voice-lines { padding: 0; }
+.fl-panel .voice-line { background: var(--paper-2); font-size: clamp(14px, 1.25vw, 18px); }
+.fl-panel-tag { margin: 0 0 14px; font-size: 11px; color: var(--ink-soft); }
+.fl-panel--blue .fl-panel-tag { color: rgba(255, 255, 255, 0.8); }
+
+/* ---------- beat 3: the closer ---------- */
+.fl-closer { display: block; width: 100%; margin: 4px 0 0; padding: clamp(10px, 1.4vw, 18px); border: 0; background: var(--ink); cursor: zoom-in; }
+.fl-closer img { display: block; width: 100%; height: auto; border-radius: 14px; }
+.fl-closer--promise { display: grid; place-items: center; min-height: clamp(260px, 34vw, 480px); background: #0066ff; color: #fff; cursor: default; }
+.fl-closer--promise p { margin: 0; font-size: clamp(54px, 10vw, 170px); font-weight: 900; font-stretch: 112%; line-height: 0.86; letter-spacing: -0.045em; text-align: center; }
+.fl-closer--promise p span { display: block; color: #121212; }
+.fl-closer-cap { display: flex; justify-content: space-between; gap: 16px; margin: 0 calc(var(--gutter) * -1); padding: 12px var(--gutter) 0; font-size: 11px; color: var(--ink-soft); }
+.fl-work + .fl-closer, .fl-work > .fl-closer { margin-left: 0; margin-right: 0; }
+
+.fl-end { height: clamp(60px, 8vw, 110px); }
+
+/* ---------- extras for text-led chapters (content strategy) ---------- */
+.fl-collage--2x2 { grid-template-columns: repeat(2, 1fr); max-width: 470px; margin-left: auto; }
+.fl-collage--2x2 img { aspect-ratio: 0.8; }
+.fl-collage--wide { grid-template-columns: repeat(2, 1fr); }
+.fl-collage--wide img { aspect-ratio: 1.778; }
+.fl-index--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); max-width: 1080px; }
+.fl-closer--quote { display: grid; place-items: center; min-height: clamp(240px, 30vw, 420px); padding: clamp(28px, 5vw, 70px); background: var(--accent); color: #fff; cursor: default; }
+.fl-closer--quote p { max-width: 22ch; margin: 0; font-size: clamp(30px, 4.6vw, 72px); font-weight: 900; font-stretch: 110%; line-height: 0.98; letter-spacing: -0.03em; text-align: center; }
+.fl-closer--numbers { padding: clamp(26px, 4vw, 56px) clamp(16px, 3vw, 44px) clamp(34px, 4vw, 60px); background: var(--paper-2); cursor: default; }
+.fl-closer--numbers .stat-board { margin-top: 10px; }
+.fl-closer--numbers .growth-chart { margin-top: 40px; }
+.fl-closer--links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 40px; padding: clamp(40px, 6vw, 90px) 20px; background: var(--ink); color: var(--paper); cursor: default; }
+.fl-closer--links span { font-family: var(--f-hand); font-size: clamp(26px, 3vw, 40px); }
+.fl-closer--links a { font-size: clamp(24px, 3.4vw, 52px); font-weight: 900; font-stretch: 110%; letter-spacing: -0.02em; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; transition: color 0.2s; }
+.fl-closer--links a:hover { color: var(--accent); }
+.fl-step, .fl-big, .fl-panel--text { aspect-ratio: auto; justify-content: flex-start; padding-top: clamp(26px, 3vw, 44px); padding-bottom: clamp(30px, 3.4vw, 50px); }
+.fl-step b { display: block; margin: 6px 0 10px; font-size: clamp(24px, 2.4vw, 36px); font-weight: 900; font-stretch: 110%; line-height: 1; letter-spacing: -0.02em; }
+.fl-step p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
+.fl-big b { display: block; font-size: clamp(64px, 8vw, 130px); font-weight: 900; font-stretch: 112%; line-height: 0.9; letter-spacing: -0.04em; }
+.fl-big p { margin: 12px 0 0; font-size: 15px; line-height: 1.5; color: var(--ink-soft); }
+.fl-panel--red { background: var(--accent); color: #fff; }
+.fl-panel--red .fl-panel-tag, .fl-panel--red p { color: rgba(255, 255, 255, 0.85); }
+.fl-hooks { display: grid; gap: 10px; }
+.fl-hooks .voice-line { font-size: clamp(15px, 1.35vw, 19px); }
+
+/* ---------- small screens ---------- */
+@media (max-width: 820px) {
+  .fl-index--projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fl-index, .fl-index--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fl-intro { grid-template-columns: 1fr; }
+  .fl-preview { order: -1; margin-right: 14px; }
+  .fl-row--wrap { flex-wrap: wrap; }
+  .fl-row--wrap .fl-piece { flex: 1 1 calc(50% - 2px); aspect-ratio: 0.8; }
+  .fl-row--panels { flex-direction: column; }
+  .fl-panel { flex: none; aspect-ratio: auto; }
+  .fl-panel .swatches { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .fl-label { font-size: 11px; }
+}

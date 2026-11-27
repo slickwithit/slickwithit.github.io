@@ -9,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=17" />
+  <link rel="stylesheet" href="css/layouts.css?v=11" />
+  <link rel="stylesheet" href="css/flow.css?v=7" />
 </head>
 <body>
   <header class="site-header">
@@ -22,241 +24,234 @@
   </header>
 
   <main id="top" class="case">
-    <!-- ============ CASE HERO ============ -->
-    <section class="case-hero">
+    <!-- D: the behance flow. an opener, then four chapters that each run the same loop:
+         intro slide (brief + result + preview) → the work, edge to edge → one closing shot.
+         the old version of this page is founder-brand-v1.html -->
+    <div class="fl">
       <a href="index.html#work" class="mono back-link">← all work</a>
-      <div class="case-title-row">
-        <h1 class="case-title case-title--long">Content Strategy<br /><em>two accounts, two voices</em></h1>
-        <span class="stamp stamp--big mono">Social</span>
-      </div>
-      <p class="case-summary" data-reveal>I run two Instagram accounts. Ashwin, the founder, is the big brother. Optima is the friendly brand with everything you need. To write for CAT aspirants, I learned to think like one. Together the two accounts are how Optima gets its users.</p>
 
-      <dl class="case-meta" data-reveal-stagger>
-        <div><dt class="mono">Role</dt><dd>Content Head → Brand Manager</dd></div>
-        <div><dt class="mono">Timeline</dt><dd>Mar 2026 – Now</dd></div>
-        <div><dt class="mono">Accounts</dt><dd>@iimlechaloashwin, @optimalearn</dd></div>
-        <div><dt class="mono">Goal</dt><dd>Users, then revenue</dd></div>
-      </dl>
-    </section>
+      <!-- ============ OPENER ============ -->
+      <section class="fl-open" style="margin-top:18px">
+        <div class="fl-label mono"><span>content strategy</span><span>Optima Learn · Mar 2026 – Now</span></div>
+        <h1 style="margin-top:clamp(40px,6vw,80px)"><em>two accounts, two voices</em>content strategy</h1>
+        <p class="fl-sub">I run two Instagram accounts and design for Optima's YouTube. Ashwin, the founder, is the big brother. Optima is the friendly brand with everything you need. Together they're how Optima gets its users.</p>
+        <ul class="fl-stats">
+          <li><b>9K+</b> users on the website</li>
+          <li><b>~400</b> sign-ups every day</li>
+          <li><b>200</b> paid users</li>
+        </ul>
+        <nav class="fl-index fl-index--5" aria-label="Chapters">
+          <a href="#ch-1"><i><span class="hl-swatch" style="background:var(--accent)">think like<br />an aspirant.</span></i><span class="mono">01 · the thinking</span></a>
+          <a href="#ch-2"><i><img src="assets/social/ashwin-quant-ranking.jpg" alt="" /></i><span class="mono">02 · the big brother</span></a>
+          <a href="#ch-3"><i><img src="assets/social/optima-xat.jpg" alt="" /></i><span class="mono">03 · the friendly one</span></a>
+          <a href="#ch-4"><i><img src="assets/social/yt-B01.jpg" alt="" /></i><span class="mono">04 · the thumbnails</span></a>
+          <a href="#ch-5"><i><span class="hl-swatch" style="background:var(--ink)">9K+<br />users.</span></i><span class="mono">05 · the results</span></a>
+        </nav>
+        <p class="hand fl-hint">tap any post or thumbnail for the thinking behind it ↓</p>
+      </section>
 
-    <!-- ============ 01 THE THINKING ============ -->
-    <section class="case-block case-block--insight">
-      <p class="case-num mono">01</p>
-      <div>
-        <h2 class="tape-title">The thinking</h2>
-        <p class="hand prompt page-write">→ where it started</p>
-        <p class="case-text" data-reveal>I joined in March 2026 as content head. The company needed revenue, and revenue needed users. Building a brand from zero takes time we didn't have, but Ashwin, the founder, already had a face and a voice people could trust. So we started with him. In March his Instagram got 8.9K views and 43 new followers for the whole month, so there was a long way to go. Now Optima is growing into a brand of its own.</p>
-        <blockquote class="insight-card" data-reveal="tilt" style="--r:-1.5deg">
-          <i class="tape"></i>
-          “The founder was the fastest way in. Optima was always where we were headed.”
-        </blockquote>
-
-        <p class="hand prompt page-write">→ and then i went deep</p>
-        <p class="case-text" data-reveal>At some point I realised surface-level content wasn't going to work. If I wanted to make content CAT aspirants would actually relate to, I had to think like one. So I became one, for a while.</p>
-        <ol class="steps" data-reveal-stagger>
-          <li><b>Sat the exam</b><span>A full 2-hour paper, properly timed, start to finish.</span></li>
-          <li><b>Took every mock</b><span>And dug into how the exam is built: sections, structure, patterns.</span></li>
-          <li><b>Studied every college</b><span>Categories, cut-offs, how profiles are judged, how interviews work.</span></li>
-        </ol>
-        <p class="case-text" data-reveal>That's where the content comes from: not what an aspirant might want to hear, but what they actually need to know.</p>
-      </div>
-    </section>
-
-    <!-- ============ 02 THE STRATEGY: one voice per account ============ -->
-    <section class="case-block">
-      <p class="case-num mono">02</p>
-      <div>
-        <h2 class="tape-title">The strategy</h2>
-        <p class="hand prompt page-write">→ two accounts, two very different voices</p>
-        <div class="voices" data-reveal-stagger>
-          <article class="voice" style="--r:-1deg">
-            <i class="tape"></i>
-            <span class="platform mono">@iimlechaloashwin</span>
-            <h3>Ashwin: the big brother</h3>
-            <p>The bro you go to when you mess up a little. He's your friend, he's always there, he'll guide you and he'll call you out. He never pressures you, but if you need guiding, he's right there.</p>
-          </article>
-          <article class="voice voice--red" style="--r:1deg">
-            <i class="tape"></i>
-            <span class="platform mono">@optimalearn</span>
-            <h3>Optima: the friendly one</h3>
-            <p>There's too much content online, and not everyone's the same. Optima is the friendly one with everything you need in one place: personalised prep with AI, guided by human mentors.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 03 THE DESIGN: the voice, in his hooks ============ -->
-    <section class="case-block">
-      <p class="case-num mono">03</p>
-      <div>
-        <h2 class="tape-title">The design</h2>
-        <p class="hand prompt page-write">→ how each account looks and sounds</p>
-        <!-- real opening lines from @iimlechaloashwin captions -->
-        <div class="hooks" data-reveal-stagger>
-          <blockquote class="hook" style="--r:-1.5deg"><i class="tape"></i>“DILR isn't hard. Random practice is.”</blockquote>
-          <blockquote class="hook" style="--r:1deg"><i class="tape"></i>“Okay, no paper leaked. But this is the next best thing.”</blockquote>
-          <blockquote class="hook" style="--r:-1deg"><i class="tape"></i>“330 Quant questions. 15 CAT papers. Here's where they came from.”</blockquote>
-          <blockquote class="hook" style="--r:2deg"><i class="tape"></i>“CAT Quant mein sab chapters equal nahi hain.”</blockquote>
-          <blockquote class="hook" style="--r:-2deg"><i class="tape"></i>“Thinking of quitting your job for CAT? Watch this first.”</blockquote>
-          <blockquote class="hook" style="--r:1.5deg"><i class="tape"></i>“A low graduation percentage is not the death of your IIM dream.”</blockquote>
-        </div>
-        <div class="post-row">
-          <p class="post-handle"><span class="platform mono">@iimlechaloashwin</span><span class="hand">the big brother: reels on camera, straight talk</span></p>
-          <div class="post-grid">
-            <figure class="post" style="--r:-1.5deg"><i class="tape"></i><img src="assets/social/ashwin-quant-ranking.jpg" alt="Reel: CAT 2026, ranking quant topics" loading="lazy" /></figure>
-            <figure class="post" style="--r:1deg"><i class="tape"></i><img src="assets/social/ashwin-quant-30.jpg" alt="Reel: this is why you're not scoring in quants" loading="lazy" /></figure>
-            <figure class="post" style="--r:-1deg"><i class="tape"></i><img src="assets/social/ashwin-dilr.jpg" alt="Reel: CAT 2026, rating DILR topics" loading="lazy" /></figure>
-            <figure class="post" style="--r:1.5deg"><i class="tape"></i><img src="assets/social/ashwin-forms.jpg" alt="Post: 5 forms to fill before CAT 2026" loading="lazy" /></figure>
+      <!-- ============ 01 THE THINKING ============ -->
+      <section class="fl-ch" id="ch-1">
+        <div class="fl-label mono"><span>chapter 01</span><span>content strategy</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the thinking<span class="star">✦</span></h2>
+            <p><b>The brief:</b> I joined in March 2026 as content head. The company needed revenue, and revenue needed users. Building a brand from zero takes time we didn't have, but Ashwin, the founder, already had a face and a voice people could trust. So we started with him.</p>
+            <p><b>The result:</b> Surface-level content wasn't going to work. To make content CAT aspirants would actually relate to, I had to think like one, so I became one for a while. The content comes from what aspirants need to know, not what they might want to hear.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage fl-collage--2x2">
+              <img src="assets/social/ashwin-quant-ranking.jpg" alt="" /><img src="assets/social/optima-fms.jpg" alt="" />
+              <img src="assets/social/optima-iims.jpg" alt="" /><img src="assets/social/ashwin-dilr.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 1</p>
           </div>
         </div>
-        <div class="post-row">
-          <p class="post-handle"><span class="platform mono">@optimalearn</span><span class="hand">the friendly one: clean, useful, save-worthy</span></p>
-          <div class="post-grid">
-            <figure class="post" style="--r:-1.5deg"><i class="tape"></i><img src="assets/social/optima-xat.jpg" alt="Carousel: XAT 2027 registration is open" loading="lazy" /></figure>
-            <figure class="post" style="--r:1deg"><i class="tape"></i><img src="assets/social/optima-fms.jpg" alt="Carousel: doubts about applying to FMS? read this" loading="lazy" /></figure>
-            <figure class="post" style="--r:-1deg"><i class="tape"></i><img src="assets/social/optima-iims.jpg" alt="Carousel: new IIMs vs baby IIMs" loading="lazy" /></figure>
-            <figure class="post" style="--r:1.5deg"><i class="tape"></i><img src="assets/social/optima-pl.jpg" alt="Carousel: one table for every CAT profit &amp; loss question" loading="lazy" /></figure>
+        <div class="fl-work">
+          <div class="fl-row fl-row--panels">
+            <div class="fl-panel fl-step"><p class="mono fl-panel-tag">01</p><b>Sat the exam</b><p>A full 2-hour paper, properly timed, start to finish.</p></div>
+            <div class="fl-panel fl-step"><p class="mono fl-panel-tag">02</p><b>Took every mock</b><p>And dug into how the exam is built: sections, structure, patterns.</p></div>
+            <div class="fl-panel fl-step"><p class="mono fl-panel-tag">03</p><b>Studied every college</b><p>Categories, cut-offs, how profiles are judged, how interviews work.</p></div>
+          </div>
+          <div class="fl-closer fl-closer--quote" role="img" aria-label="The founder was the fastest way in. Optima was always where we were headed."><p>“The founder was the fastest way in. Optima was always where we were headed.”</p></div>
+        </div>
+      </section>
+
+      <!-- ============ 02 THE BIG BROTHER ============ -->
+      <section class="fl-ch" id="ch-2">
+        <div class="fl-label mono"><span>chapter 02</span><span>@iimlechaloashwin</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the big brother<span class="star">✦</span></h2>
+            <p><b>The brief:</b> Ashwin is the bro you go to when you mess up a little. He's your friend, he's always there, he'll guide you and he'll call you out. He never pressures you, but if you need guiding, he's right there.</p>
+            <p><b>The result:</b> In March his Instagram got 8.9K views and 43 new followers for the whole month. Since then: 1.93M views and 10K followers, with monthly views up 34× from March to October.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage fl-collage--2x2">
+              <img src="assets/social/ashwin-quant-ranking.jpg" alt="" /><img src="assets/social/ashwin-quant-30.jpg" alt="" />
+              <img src="assets/social/ashwin-dilr.jpg" alt="" /><img src="assets/social/ashwin-forms.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 2</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ 04 THE WORK + RESULTS ============ -->
-    <section class="case-block case-block--last">
-      <p class="case-num mono">04</p>
-      <div>
-        <h2 class="tape-title">The work</h2>
-        <p class="hand prompt page-write">→ what it added up to</p>
-        <div class="stats" data-reveal-stagger>
-          <div class="stat" style="--r:-2deg"><b>9K+</b><span class="mono">users on the website</span></div>
-          <div class="stat" style="--r:1.5deg"><b>~400</b><span class="mono">sign-ups every day</span></div>
-          <div class="stat" style="--r:-1deg"><b>200</b><span class="mono">paid users</span></div>
-        </div>
-        <p class="case-text" data-reveal>Sign-ups on the site grew in step with Ashwin's followers, which is how we know where they came from. Here's that Instagram side, since March:</p>
-
-        <div class="numbers case-numbers">
-          <!-- switch between the two accounts: each tab shows its own panel of cards + chart -->
-          <div class="acct-switch" role="tablist" aria-label="Instagram account">
-            <button class="acct-tab is-on" type="button" role="tab" id="tab-ashwin" aria-selected="true" aria-controls="acct-ashwin">Ashwin's account</button>
-            <button class="acct-tab" type="button" role="tab" id="tab-optima" aria-selected="false" aria-controls="acct-optima" tabindex="-1">Optima's account</button>
+        <div class="fl-work">
+          <div class="fl-row fl-row--wrap">
+            <button class="fl-piece" style="--ar:.749" data-label="Ranking quant topics" data-full="assets/social/ashwin-quant-ranking.jpg" data-title="Reel · CAT 2026, ranking quant topics" data-concept="The big brother on camera: straight talk on which quant topics deserve your time, so aspirants stop treating every chapter the same."><img src="assets/social/ashwin-quant-ranking.jpg" alt="Reel: CAT 2026, ranking quant topics" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:.749" data-label="Not scoring in quants" data-full="assets/social/ashwin-quant-30.jpg" data-title="Reel · why you're not scoring in quants" data-concept="Names the problem aspirants feel but can't explain, then gives the fix. Calls you out, never pressures you."><img src="assets/social/ashwin-quant-30.jpg" alt="Reel: this is why you're not scoring in quants" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:.749" data-label="Rating DILR topics" data-full="assets/social/ashwin-dilr.jpg" data-title="Reel · CAT 2026, rating DILR topics" data-concept="Same format as the quant ranking, applied to DILR. A repeatable series gives followers a reason to come back for the next section."><img src="assets/social/ashwin-dilr.jpg" alt="Reel: CAT 2026, rating DILR topics" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:.804" data-label="5 forms before CAT" data-full="assets/social/ashwin-forms.jpg" data-title="Post · 5 forms to fill before CAT 2026" data-concept="Practical and save-worthy: the deadlines an aspirant shouldn't miss, from someone who's already been through it."><img src="assets/social/ashwin-forms.jpg" alt="Post: 5 forms to fill before CAT 2026" loading="lazy" /></button>
           </div>
-
-          <!-- source: instagram insights daily exports in data/ashwin, summed by month. mar 2026 is when i joined. views + interactions run to nov 7 (oct 1 to nov 7 from the meta business suite pdfs). followers = his real total on nov 9 (10K), not summed follows, since follows never subtract unfollows -->
-          <div class="acct" id="acct-ashwin" role="tabpanel" aria-labelledby="tab-ashwin">
-          <div class="stat-board">
-            <div class="stat-note" style="--r:-2.5deg">
-              <i class="tape"></i>
-              <span class="platform mono">Instagram</span>
-              <b class="stat-num" data-count="10" data-suffix="K">10K</b>
-              <span class="stat-label">followers now</span>
-            </div>
-            <div class="stat-note" style="--r:1.5deg">
-              <i class="tape"></i>
-              <span class="platform mono">Instagram</span>
-              <b class="stat-num" data-count="1.93" data-suffix="M">1.93M</b>
-              <span class="stat-label">views since march</span>
-            </div>
-            <div class="stat-note" style="--r:-1deg">
-              <i class="tape"></i>
-              <span class="platform mono">Instagram</span>
-              <b class="stat-num" data-count="161" data-suffix="K">161K</b>
-              <span class="stat-label">likes, comments, shares &amp; saves</span>
-            </div>
-            <div class="stat-note stat-note--red" style="--r:2.5deg">
-              <i class="tape"></i>
-              <span class="platform mono">Mar → Oct</span>
-              <b class="stat-num" data-count="34" data-suffix="×">34×</b>
-              <span class="stat-label">more views a month</span>
-            </div>
+          <div class="fl-row fl-row--panels">
+            <div class="fl-panel fl-panel--text"><p class="mono fl-panel-tag">his opening lines · real captions</p><div class="voice-lines fl-hooks"><blockquote class="voice-line">DILR isn't hard. Random practice is.</blockquote><blockquote class="voice-line">Okay, no paper leaked. But this is the next best thing.</blockquote></div></div>
+            <div class="fl-panel fl-panel--text"><p class="mono fl-panel-tag">&nbsp;</p><div class="voice-lines fl-hooks"><blockquote class="voice-line">330 Quant questions. 15 CAT papers. Here's where they came from.</blockquote><blockquote class="voice-line">CAT Quant mein sab chapters equal nahi hain.</blockquote></div></div>
+            <div class="fl-panel fl-panel--text"><p class="mono fl-panel-tag">&nbsp;</p><div class="voice-lines fl-hooks"><blockquote class="voice-line">Thinking of quitting your job for CAT? Watch this first.</blockquote><blockquote class="voice-line">A low graduation percentage is not the death of your IIM dream.</blockquote></div></div>
           </div>
-
-          <!-- monthly views + new follows, mar → oct 2026 (nov is only 2 days in, so it's left out) -->
-          <figure class="growth-chart" style="--r:-0.8deg" data-months="Mar,Apr,May,Jun,Jul,Aug,Sep,Oct" data-views="8882,37485,468357,223611,286748,172985,299191,306544" data-follows="43,132,2706,2108,3062,2467,2764,1755" data-max="500000">
-            <i class="tape"></i>
-            <figcaption class="mono">Monthly views · Ashwin's Instagram · Mar → Oct 2026</figcaption>
-            <div class="chart">
-              <div class="chart-y mono" aria-hidden="true"><span>500K</span><span>250K</span><span>0</span></div>
-              <div class="chart-area">
-                <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                  <g class="chart-grid"><line x1="0" y1="0" x2="100" y2="0" /><line x1="0" y1="50" x2="100" y2="50" /><line x1="0" y1="100" x2="100" y2="100" /></g>
-                  <path class="chart-line" d="" />
-                </svg>
-                <span class="chart-cross" aria-hidden="true"></span>
-                <div class="chart-points"></div>
-                <div class="chart-tip mono" role="status"><b></b><span></span></div>
-                <span class="hand chart-note">took off here ↗</span>
+          <!-- source: instagram insights daily exports in data/ashwin, summed by month. views + interactions run to nov 7. followers = his real total on nov 9 (10K) -->
+          <div class="fl-closer fl-closer--numbers numbers case-numbers">
+            <div class="stat-board">
+              <div class="stat-note" style="--r:-2.5deg"><i class="tape"></i><span class="platform mono">Instagram</span><b class="stat-num" data-count="10" data-suffix="K">10K</b><span class="stat-label">followers now</span></div>
+              <div class="stat-note" style="--r:1.5deg"><i class="tape"></i><span class="platform mono">Instagram</span><b class="stat-num" data-count="1.93" data-suffix="M">1.93M</b><span class="stat-label">views since march</span></div>
+              <div class="stat-note" style="--r:-1deg"><i class="tape"></i><span class="platform mono">Instagram</span><b class="stat-num" data-count="161" data-suffix="K">161K</b><span class="stat-label">likes, comments, shares &amp; saves</span></div>
+              <div class="stat-note stat-note--red" style="--r:2.5deg"><i class="tape"></i><span class="platform mono">Mar → Oct</span><b class="stat-num" data-count="34" data-suffix="×">34×</b><span class="stat-label">more views a month</span></div>
+            </div>
+            <figure class="growth-chart" style="--r:-0.8deg" data-months="Mar,Apr,May,Jun,Jul,Aug,Sep,Oct" data-views="8882,37485,468357,223611,286748,172985,299191,306544" data-follows="43,132,2706,2108,3062,2467,2764,1755" data-max="500000">
+              <i class="tape"></i>
+              <figcaption class="mono">Monthly views · Ashwin's Instagram · Mar → Oct 2026</figcaption>
+              <div class="chart">
+                <div class="chart-y mono" aria-hidden="true"><span>500K</span><span>250K</span><span>0</span></div>
+                <div class="chart-area">
+                  <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <g class="chart-grid"><line x1="0" y1="0" x2="100" y2="0" /><line x1="0" y1="50" x2="100" y2="50" /><line x1="0" y1="100" x2="100" y2="100" /></g>
+                    <path class="chart-line" d="" />
+                  </svg>
+                  <span class="chart-cross" aria-hidden="true"></span>
+                  <div class="chart-points"></div>
+                  <div class="chart-tip mono" role="status"><b></b><span></span></div>
+                  <span class="hand chart-note">took off here ↗</span>
+                </div>
+                <div class="chart-x mono" aria-hidden="true"></div>
               </div>
-              <div class="chart-x mono" aria-hidden="true"></div>
-            </div>
-            <table class="visually-hidden">
-              <caption>Monthly views and new follows on Ashwin's Instagram, March to October 2026</caption>
-              <thead><tr><th>Month</th><th>Views</th><th>New follows</th></tr></thead>
-              <tbody></tbody>
-            </table>
-          </figure>
+              <table class="visually-hidden">
+                <caption>Monthly views and new follows on Ashwin's Instagram, March to October 2026</caption>
+                <thead><tr><th>Month</th><th>Views</th><th>New follows</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </figure>
           </div>
-
-          <!-- source: data/optima daily exports (old csvs to nov 2, the _1 csvs for oct 1 to nov 7), summed by month. followers = real total on nov 9 (2,914). 16× = oct 237,254 views vs mar 14,364 -->
-          <div class="acct" id="acct-optima" role="tabpanel" aria-labelledby="tab-optima" hidden>
-          <div class="stat-board">
-            <div class="stat-note" style="--r:-2.5deg">
-              <i class="tape"></i>
-              <span class="platform mono">Instagram</span>
-              <b class="stat-num" data-count="2.9" data-suffix="K">2.9K</b>
-              <span class="stat-label">followers now</span>
-            </div>
-            <div class="stat-note" style="--r:1.5deg">
-              <i class="tape"></i>
-              <span class="platform mono">Instagram</span>
-              <b class="stat-num" data-count="668" data-suffix="K">668K</b>
-              <span class="stat-label">views since march</span>
-            </div>
-            <div class="stat-note" style="--r:-1deg">
-              <i class="tape"></i>
-              <span class="platform mono">Instagram</span>
-              <b class="stat-num" data-count="52" data-suffix="K">52K</b>
-              <span class="stat-label">likes, comments, shares &amp; saves</span>
-            </div>
-            <div class="stat-note stat-note--red" style="--r:2.5deg">
-              <i class="tape"></i>
-              <span class="platform mono">Mar → Oct</span>
-              <b class="stat-num" data-count="16" data-suffix="×">16×</b>
-              <span class="stat-label">more views a month</span>
-            </div>
-          </div>
-
-          <!-- monthly views + new follows, mar → oct 2026. data-note = which month the "took off" note points at (sep) -->
-          <figure class="growth-chart" style="--r:0.8deg" data-months="Mar,Apr,May,Jun,Jul,Aug,Sep,Oct" data-views="14364,45532,12786,29127,40196,18434,198460,237254" data-follows="38,75,82,105,94,64,1433,1337" data-max="250000" data-note="6">
-            <i class="tape"></i>
-            <figcaption class="mono">Monthly views · Optima's Instagram · Mar → Oct 2026</figcaption>
-            <div class="chart">
-              <div class="chart-y mono" aria-hidden="true"><span>250K</span><span>125K</span><span>0</span></div>
-              <div class="chart-area">
-                <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                  <g class="chart-grid"><line x1="0" y1="0" x2="100" y2="0" /><line x1="0" y1="50" x2="100" y2="50" /><line x1="0" y1="100" x2="100" y2="100" /></g>
-                  <path class="chart-line" d="" />
-                </svg>
-                <span class="chart-cross" aria-hidden="true"></span>
-                <div class="chart-points"></div>
-                <div class="chart-tip mono" role="status"><b></b><span></span></div>
-                <span class="hand chart-note">took off here ↗</span>
-              </div>
-              <div class="chart-x mono" aria-hidden="true"></div>
-            </div>
-            <table class="visually-hidden">
-              <caption>Monthly views and new follows on Optima's Instagram, March to October 2026</caption>
-              <thead><tr><th>Month</th><th>Views</th><th>New follows</th></tr></thead>
-              <tbody></tbody>
-            </table>
-          </figure>
-          </div>
-
         </div>
+      </section>
 
-        <p class="case-text" data-reveal>And the shift to Optima's own page has started: it went from about 80 new followers a month (March to August) to 1.4K in September and 1.3K in October. It's at 2.9K followers now.</p>
-        <p class="case-text" data-reveal>See them live: <a class="ink-link" href="https://www.instagram.com/iimlechaloashwin/" target="_blank" rel="noopener">@iimlechaloashwin ↗</a> and <a class="ink-link" href="https://www.instagram.com/optimalearn/" target="_blank" rel="noopener">@optimalearn ↗</a></p>
-      </div>
-    </section>
+      <!-- ============ 03 THE FRIENDLY ONE ============ -->
+      <section class="fl-ch" id="ch-3">
+        <div class="fl-label mono"><span>chapter 03</span><span>@optimalearn</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the friendly one<span class="star">✦</span></h2>
+            <p><b>The brief:</b> There's too much content online, and not everyone's the same. Optima is the friendly one with everything you need in one place: personalised prep with AI, guided by human mentors.</p>
+            <p><b>The result:</b> The shift to Optima's own page has started. It went from about 80 new followers a month (March to August) to 1.4K in September and 1.3K in October. It's at 2.9K followers now, with monthly views up 16×.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage fl-collage--2x2">
+              <img src="assets/social/optima-xat.jpg" alt="" /><img src="assets/social/optima-fms.jpg" alt="" />
+              <img src="assets/social/optima-iims.jpg" alt="" /><img src="assets/social/optima-pl.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 3</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--wrap">
+            <button class="fl-piece" style="--ar:.749" data-label="XAT 2027 registration" data-full="assets/social/optima-xat.jpg" data-title="Carousel · XAT 2027 registration is open" data-concept="Clean, useful and timely: the update an aspirant needs, laid out so it can be saved and acted on."><img src="assets/social/optima-xat.jpg" alt="Carousel: XAT 2027 registration is open" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:.749" data-label="Applying to FMS" data-full="assets/social/optima-fms.jpg" data-title="Carousel · doubts about applying to FMS? read this" data-concept="Answers a question aspirants keep asking, in one place, so they don't have to piece it together from ten different sources."><img src="assets/social/optima-fms.jpg" alt="Carousel: doubts about applying to FMS? read this" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:.749" data-label="New IIMs vs baby IIMs" data-full="assets/social/optima-iims.jpg" data-title="Carousel · new IIMs vs baby IIMs" data-concept="A comparison aspirants need when they shortlist colleges, made simple enough to read in one scroll."><img src="assets/social/optima-iims.jpg" alt="Carousel: new IIMs vs baby IIMs" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:.749" data-label="One table for P&amp;L" data-full="assets/social/optima-pl.jpg" data-title="Carousel · one table for every CAT profit &amp; loss question" data-concept="Save-worthy by design: a whole topic on one table, the kind of post people bookmark and come back to."><img src="assets/social/optima-pl.jpg" alt="Carousel: one table for every CAT profit &amp; loss question" loading="lazy" /></button>
+          </div>
+          <!-- source: data/optima daily exports, summed by month. followers = real total on nov 9 (2,914). 16× = oct 237,254 views vs mar 14,364. data-note = the "took off" month (sep) -->
+          <div class="fl-closer fl-closer--numbers numbers case-numbers">
+            <div class="stat-board">
+              <div class="stat-note" style="--r:-2.5deg"><i class="tape"></i><span class="platform mono">Instagram</span><b class="stat-num" data-count="2.9" data-suffix="K">2.9K</b><span class="stat-label">followers now</span></div>
+              <div class="stat-note" style="--r:1.5deg"><i class="tape"></i><span class="platform mono">Instagram</span><b class="stat-num" data-count="668" data-suffix="K">668K</b><span class="stat-label">views since march</span></div>
+              <div class="stat-note" style="--r:-1deg"><i class="tape"></i><span class="platform mono">Instagram</span><b class="stat-num" data-count="52" data-suffix="K">52K</b><span class="stat-label">likes, comments, shares &amp; saves</span></div>
+              <div class="stat-note stat-note--red" style="--r:2.5deg"><i class="tape"></i><span class="platform mono">Mar → Oct</span><b class="stat-num" data-count="16" data-suffix="×">16×</b><span class="stat-label">more views a month</span></div>
+            </div>
+            <figure class="growth-chart" style="--r:0.8deg" data-months="Mar,Apr,May,Jun,Jul,Aug,Sep,Oct" data-views="14364,45532,12786,29127,40196,18434,198460,237254" data-follows="38,75,82,105,94,64,1433,1337" data-max="250000" data-note="6">
+              <i class="tape"></i>
+              <figcaption class="mono">Monthly views · Optima's Instagram · Mar → Oct 2026</figcaption>
+              <div class="chart">
+                <div class="chart-y mono" aria-hidden="true"><span>250K</span><span>125K</span><span>0</span></div>
+                <div class="chart-area">
+                  <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <g class="chart-grid"><line x1="0" y1="0" x2="100" y2="0" /><line x1="0" y1="50" x2="100" y2="50" /><line x1="0" y1="100" x2="100" y2="100" /></g>
+                    <path class="chart-line" d="" />
+                  </svg>
+                  <span class="chart-cross" aria-hidden="true"></span>
+                  <div class="chart-points"></div>
+                  <div class="chart-tip mono" role="status"><b></b><span></span></div>
+                  <span class="hand chart-note">took off here ↗</span>
+                </div>
+                <div class="chart-x mono" aria-hidden="true"></div>
+              </div>
+              <table class="visually-hidden">
+                <caption>Monthly views and new follows on Optima's Instagram, March to October 2026</caption>
+                <thead><tr><th>Month</th><th>Views</th><th>New follows</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============ 04 YOUTUBE THUMBNAILS ============ -->
+      <section class="fl-ch" id="ch-4">
+        <div class="fl-label mono"><span>chapter 04</span><span>YouTube</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the thumbnails<span class="star">✦</span></h2>
+            <p><b>The brief:</b> Thumbnails for Optima's GD-PI 2027 video on issue analysis: how to structure an answer in a group discussion. On YouTube the thumbnail decides the click, and CAT prep is a crowded feed.</p>
+            <p><b>The result:</b> I studied 10 CAT prep channels on YouTube and rebuilt the topic in 28 of their thumbnail styles, then narrowed it to 8 finals. Each final tests a different hook: the promise, bad vs good, the dilemma, the series card, the pain point and the credential.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage fl-collage--wide">
+              <img src="assets/social/yt-B01.jpg" alt="" /><img src="assets/social/yt-B02.jpg" alt="" />
+              <img src="assets/social/yt-B13.jpg" alt="" /><img src="assets/social/yt-B14.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 4</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:1.778" data-label="How to answer any GD topic" data-full="assets/social/yt-B01.jpg" data-title="Thumbnail · How to answer any GD topic" data-concept="Big yellow type, a direct promise and a “selected” stamp: the outcome every aspirant wants, readable at a glance."><img src="assets/social/yt-B01.jpg" alt="YouTube thumbnail: How to answer any GD topic" loading="lazy" /></button><button class="fl-piece" style="--ar:1.778" data-label="Best GD answer in 3 steps" data-full="assets/social/yt-B02.jpg" data-title="Thumbnail · Best GD answer in 3 steps" data-concept="Bad answer vs good answer, side by side. The 3-step method (issue, structure, answer) becomes the visual."><img src="assets/social/yt-B02.jpg" alt="YouTube thumbnail: Best GD answer in 3 steps" loading="lazy" /></button><button class="fl-piece" style="--ar:1.778" data-label="Session 01 · issue analysis" data-full="assets/social/yt-B06.jpg" data-title="Thumbnail · Session 01 · issue analysis" data-concept="A clean series card: the course, the session number and Ashwin&#x27;s credentials, for viewers who already know the channel."><img src="assets/social/yt-B06.jpg" alt="YouTube thumbnail: Session 01 · issue analysis" loading="lazy" /></button></div><div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:1.778" data-label="Speak first or wait?" data-full="assets/social/yt-B07.jpg" data-title="Thumbnail · Speak first or wait?" data-concept="Opens on the question every GD candidate asks, then promises the answer: do this instead."><img src="assets/social/yt-B07.jpg" alt="YouTube thumbnail: Speak first or wait?" loading="lazy" /></button><button class="fl-piece" style="--ar:1.778" data-label="Issue analysis masterclass" data-full="assets/social/yt-B09.jpg" data-title="Thumbnail · Issue analysis masterclass" data-concept="Frames the video as a full masterclass, with the 3-step promise underneath."><img src="assets/social/yt-B09.jpg" alt="YouTube thumbnail: Issue analysis masterclass" loading="lazy" /></button><button class="fl-piece" style="--ar:1.778" data-label="Structure any topic" data-full="assets/social/yt-B10.jpg" data-title="Thumbnail · Structure any topic" data-concept="GD, WAT and PI in one line: one method that works across all three."><img src="assets/social/yt-B10.jpg" alt="YouTube thumbnail: Structure any topic" loading="lazy" /></button></div><div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:1.778" data-label="Why you ramble in GD" data-full="assets/social/yt-B13.jpg" data-title="Thumbnail · Why you ramble in GD" data-concept="Leads with the pain point, then the fix in 3 steps."><img src="assets/social/yt-B13.jpg" alt="YouTube thumbnail: Why you ramble in GD" loading="lazy" /></button><button class="fl-piece" style="--ar:1.778" data-label="99.78%iler GD method exposed" data-full="assets/social/yt-B14.jpg" data-title="Thumbnail · 99.78%iler GD method exposed" data-concept="Credibility first: Ashwin&#x27;s percentile is the hook, and the method is summed up in a table."><img src="assets/social/yt-B14.jpg" alt="YouTube thumbnail: 99.78%iler GD method exposed" loading="lazy" /></button></div>
+          <button class="fl-closer" data-full="assets/social/yt-studies.jpg" data-title="28 style studies" data-concept="Before the finals, I rebuilt the same topic in the thumbnail styles of 10 CAT prep channels on YouTube: 28 studies, to see which layouts, colours and hooks this audience is used to clicking on."><img src="assets/social/yt-studies.jpg" alt="28 thumbnail style studies in a grid" loading="lazy" /></button>
+        </div>
+      </section>
+
+      <!-- ============ 05 THE RESULTS ============ -->
+      <section class="fl-ch" id="ch-5">
+        <div class="fl-label mono"><span>chapter 05</span><span>content strategy</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the results<span class="star">✦</span></h2>
+            <p><b>The brief:</b> Users, then revenue. The two accounts had to bring people to the product, not just views to the posts.</p>
+            <p><b>The result:</b> Sign-ups on the site grew in step with Ashwin's followers, which is how we know where they came from. The founder brought the first wave in, and Optima's own page is now growing into a brand of its own.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage fl-collage--2x2">
+              <img src="assets/social/ashwin-forms.jpg" alt="" /><img src="assets/social/optima-pl.jpg" alt="" />
+              <img src="assets/social/optima-xat.jpg" alt="" /><img src="assets/social/ashwin-quant-30.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 5</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--panels">
+            <div class="fl-panel fl-big"><p class="mono fl-panel-tag">the website</p><b>9K+</b><p>users on the website</p></div>
+            <div class="fl-panel fl-big"><p class="mono fl-panel-tag">every day</p><b>~400</b><p>sign-ups</p></div>
+            <div class="fl-panel fl-big fl-panel--red"><p class="mono fl-panel-tag">revenue</p><b>200</b><p>paid users</p></div>
+          </div>
+          <div class="fl-closer fl-closer--links"><span>see them live →</span><a href="https://www.instagram.com/iimlechaloashwin/" target="_blank" rel="noopener">@iimlechaloashwin ↗</a><a href="https://www.instagram.com/optimalearn/" target="_blank" rel="noopener">@optimalearn ↗</a></div>
+        </div>
+      </section>
+      <div class="fl-end"></div>
+    </div>
 
     <!-- ============ NEXT ============ -->
     <section class="contact case-next" data-tear="top">
@@ -269,9 +264,11 @@
     </section>
   </main>
 
+  <dialog class="lightbox lightbox--ig" aria-label="Design preview"><div class="lightbox-imgs"></div><p class="lightbox-concept"></p><span class="mono lightbox-close">click anywhere to close ✕</span></dialog>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=16"></script>
 </body>
 </html>

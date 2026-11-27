@@ -183,7 +183,11 @@ if (lightbox) {
       else box.replaceChildren(...imgs);
       box.dataset.layout = srcs.length > 1 ? btn.dataset.layout || "row" : "";
       const concept = $(".lightbox-concept", lightbox);
-      if (concept) concept.textContent = btn.dataset.concept || "";
+      if (concept) {
+        // data-title + data-concept read like an instagram caption: bold first line, then the explanation
+        concept.innerHTML = btn.dataset.concept || ""; // our own copy, may carry <b> for key phrases
+        if (btn.dataset.title) concept.prepend(Object.assign(document.createElement("b"), { textContent: btn.dataset.title }));
+      }
       lightbox.classList.toggle("has-concept", !!btn.dataset.concept);
       // data-video: the workflow recording plays beside the design (the click counts as a gesture, so sound is allowed)
       const slot = $(".lightbox-video", lightbox);

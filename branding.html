@@ -4,12 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Brand Identity · Archita</title>
-  <meta name="description" content="Optima Learn's look, on screen and off: website, app, mascot, merch and print, built on clarity over chaos." />
+  <meta name="description" content="Two brand identities: Optima Learn (positioning, visual system, mascot, welcome kit, event collateral) and Dough It, a concept cookie dough brand." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=17" />
+  <link rel="stylesheet" href="css/layouts.css?v=11" />
+  <link rel="stylesheet" href="css/flow.css?v=8" />
 </head>
 <body>
   <header class="site-header">
@@ -22,125 +24,273 @@
   </header>
 
   <main id="top" class="case">
-    <!-- ============ CASE HERO ============ -->
-    <section class="case-hero">
+    <!-- D: the behance flow. a page opener, then two projects (optima learn, dough it). each project: a divider, then four chapters that run the same loop:
+         intro slide (brief + result + preview) → the work, edge to edge → one closing shot. -->
+    <div class="fl">
       <a href="index.html#work" class="mono back-link">← all work</a>
-      <div class="case-title-row">
-        <h1 class="case-title case-title--long">Brand Identity<br /><em>clarity over chaos</em></h1>
-        <span class="stamp stamp--big mono">Brand</span>
-      </div>
-      <p class="case-summary" data-reveal>The look of Optima Learn, on screen and off it: the website, the app, our mascot, merch and print, all built on one line. Minimal, playful, never messy.</p>
 
-      <dl class="case-meta" data-reveal-stagger>
-        <div><dt class="mono">Role</dt><dd>Content Head → Brand Manager</dd></div>
-        <div><dt class="mono">Brand</dt><dd>Optima Learn</dd></div>
-        <div><dt class="mono">Covers</dt><dd>Merch, print, mascot</dd></div>
-        <div><dt class="mono">Timeline</dt><dd>Mar 2026 – Now</dd></div>
-      </dl>
-    </section>
+      <!-- ============ PAGE OPENER: two projects ============ -->
+      <section class="fl-open" style="margin-top:18px">
+        <div class="fl-label mono"><span>brand identity</span><span>2 projects</span></div>
+        <h1 style="margin-top:clamp(40px,6vw,80px)"><em>two identities</em>brand identity</h1>
+        <p class="fl-sub">Two brands built from the ground up: Optima Learn, the CAT prep company I brand today, and Dough It, a concept brand made for a design brief.</p>
+        <nav class="fl-index fl-index--projects" aria-label="Projects">
+          <a href="#optima"><i><img src="assets/merch/tshirt-black.jpg" alt="" /></i><span class="mono">project 01 · optima learn</span></a>
+          <a href="#doughit"><i><img src="assets/doughit/tub-classic.jpg" alt="" /></i><span class="mono">project 02 · dough it</span></a>
+        </nav>
+        <p class="hand fl-hint">tap any piece for the thinking behind it ↓</p>
+      </section>
 
-    <!-- ============ 01 THE THINKING ============ -->
-    <section class="case-block case-block--insight">
-      <p class="case-num mono">01</p>
-      <div>
-        <h2 class="tape-title">The thinking</h2>
-        <p class="hand prompt page-write">→ what optima stands for</p>
-        <p class="case-text" data-reveal>There's too much content online, and not everyone learns the same way. Optima gives you personalised prep for MBA entrances, starting with CAT: AI that adapts to you, guided by real human mentors. "Clarity over chaos" is that promise in three words, so everything we make carries it.</p>
-        <blockquote class="insight-card" data-reveal="tilt" style="--r:-1.5deg">
-          <i class="tape"></i>
-          “We need our identity. It's important to be seen.”
-        </blockquote>
-      </div>
-    </section>
+      <!-- ============ PROJECT 01 · OPTIMA LEARN ============ -->
+      <section class="fl-open fl-open--project" id="optima">
+        <div class="fl-label mono"><span>project 01</span><span>Optima Learn · Mar 2026 – Now</span></div>
+        <h1 style="margin-top:clamp(40px,6vw,80px)"><em>project 01</em>optima learn</h1>
+        <p class="fl-sub">I built Optima Learn's identity from the ground up: positioning, visual system, mascot, welcome kit and event collateral. Four chapters, one promise.</p>
+        <ul class="fl-stats">
+          <li><b>8</b> touchpoints</li>
+          <li><b>20</b> mascot moods</li>
+          <li><b>1</b> kit per paid user</li>
+        </ul>
+        <nav class="fl-index" aria-label="Chapters">
+          <a href="#o-1"><i><span class="hl-swatch">Clarity<br />over chaos.</span></i><span class="mono">01 · the system</span></a>
+          <a href="#o-2"><i><img src="assets/merch/tote.jpg" alt="" /></i><span class="mono">02 · the welcome kit</span></a>
+          <a href="#o-3"><i><img src="assets/merch/standee.jpg" alt="" style="object-position:50% 20%" /></i><span class="mono">03 · print for events</span></a>
+          <a href="#o-4"><i><img src="assets/mascot/wink.jpg" alt="" /></i><span class="mono">04 · the mascot</span></a>
+        </nav>
+        
+      </section>
 
-    <!-- ============ 02 THE STRATEGY ============ -->
-    <section class="case-block">
-      <p class="case-num mono">02</p>
-      <div>
-        <h2 class="tape-title">The strategy</h2>
-        <p class="hand prompt page-write">→ start minimal, then build on it</p>
-        <ol class="steps steps--four" data-reveal-stagger>
-          <li><b>Minimal first</b><span>Playful, but never messy. It delivers the message and gets through.</span></li>
-          <li><b>Reward the ones who chose us</b><span>Every paid user got a kit: t-shirt, tote, diary and keychain.</span></li>
-          <li><b>Be seen offline</b><span>Standees and brochures for the events we go to, so it's clear what we are.</span></li>
-          <li><b>Say it by hand</b><span>Each kit came with a handwritten, personalised message card.</span></li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ 03 THE DESIGN: click a design to see all its sides ============ -->
-    <section class="case-block case-block--last">
-      <p class="case-num mono">03</p>
-      <div>
-        <h2 class="tape-title">The design</h2>
-        <p class="hand prompt page-write">→ tap a design to see it up close</p>
-        <div class="merch-wall">
-          <figure class="pin" style="--r:-1.5deg">
-            <i class="tape"></i>
-            <button class="pin-open" data-full="assets/merch/tshirt-black.jpg|assets/merch/tshirt-white.jpg" data-layout="stack" data-concept="A thank-you kit for every paid user. They chose us, so we wanted them to feel special. Minimal, playful, never messy: it says what the brand stands for and gets out of the way." aria-label="Open T-shirt, black &amp; white">
-              <img src="assets/merch/tshirt-black.jpg" alt="T-shirt, black &amp; white design" loading="lazy" />
-            </button>
-            <figcaption class="mono">T-shirt, black &amp; white</figcaption>
-          </figure>
-          <figure class="pin" style="--r:2deg">
-            <i class="tape"></i>
-            <button class="pin-open" data-full="assets/merch/tote.jpg" data-concept="A thank-you kit for every paid user. They chose us, so we wanted them to feel special. Minimal, playful, never messy: it says what the brand stands for and gets out of the way." aria-label="Open Tote bag">
-              <img src="assets/merch/tote.jpg" alt="Tote bag design" loading="lazy" />
-            </button>
-            <figcaption class="mono">Tote bag</figcaption>
-          </figure>
-          <figure class="pin" style="--r:-1deg">
-            <i class="tape"></i>
-            <button class="pin-open" data-full="assets/merch/diary-front.jpg|assets/merch/diary-back.jpg" data-layout="row" data-concept="A thank-you kit for every paid user. They chose us, so we wanted them to feel special. Minimal, playful, never messy: it says what the brand stands for and gets out of the way." aria-label="Open Diary, front &amp; back">
-              <img src="assets/merch/diary-front.jpg" alt="Diary, front &amp; back design" loading="lazy" />
-            </button>
-            <figcaption class="mono">Diary, front &amp; back</figcaption>
-          </figure>
-          <figure class="pin" style="--r:2deg">
-            <i class="tape"></i>
-            <button class="pin-open" data-full="assets/merch/keychain.jpg" data-concept="A thank-you kit for every paid user. They chose us, so we wanted them to feel special. Minimal, playful, never messy: it says what the brand stands for and gets out of the way." aria-label="Open Keychain">
-              <img src="assets/merch/keychain.jpg" alt="Keychain design: the Optima mascot in a hoodie and headphones" loading="lazy" />
-            </button>
-            <figcaption class="mono">Keychain</figcaption>
-          </figure>
-          <figure class="pin" style="--r:1.5deg">
-            <i class="tape"></i>
-            <button class="pin-open" data-full="assets/merch/standee.jpg" data-concept="Made for the offline events we go to. We need our identity out there, and it has to be clear at a glance what Optima is. It's important to be seen." aria-label="Open Standee">
-              <img src="assets/merch/standee.jpg" alt="Standee design" loading="lazy" />
-            </button>
-            <figcaption class="mono">Standee</figcaption>
-          </figure>
-          <figure class="pin" style="--r:-2deg">
-            <i class="tape"></i>
-            <button class="pin-open" data-full="assets/merch/brochure-outside.jpg|assets/merch/brochure-inside.jpg" data-layout="stack" data-concept="Made for the offline events we go to. We need our identity out there, and it has to be clear at a glance what Optima is. It's important to be seen." aria-label="Open Brochure, outside &amp; inside">
-              <img src="assets/merch/brochure-outside.jpg" alt="Brochure, outside &amp; inside design" loading="lazy" />
-            </button>
-            <figcaption class="mono">Brochure, outside &amp; inside</figcaption>
-          </figure>
-          <figure class="pin" style="--r:1deg">
-            <i class="tape"></i>
-            <button class="pin-open" data-full="assets/merch/message-card.jpg" data-concept="Part of the kit for every paid user: a handwritten, personalised note, so they feel connected to us, not just signed up." aria-label="Open Message card, signed by Ashwin">
-              <img src="assets/merch/message-card.jpg" alt="Message card, signed by Ashwin design" loading="lazy" />
-            </button>
-            <figcaption class="mono">Message card, signed by Ashwin</figcaption>
-          </figure>
+      <!-- ============ 01 THE SYSTEM ============ -->
+      <section class="fl-ch" id="o-1">
+        <div class="fl-label mono"><span>optima learn · chapter 01</span><span>project 01</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the system<span class="star">✦</span></h2>
+            <p><b>The brief:</b> Optima Learn is a new name in a crowded CAT prep category, where most brands compete on volume and urgency. Its audience is students who are overwhelmed and sceptical of big promises.</p>
+            <p><b>The result:</b> One rule set that every touchpoint follows: one promise, one blue, calm copy and a mascot for warmth. The brand reads as one thing on a phone screen, a standee or a keychain.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage">
+              <img src="assets/merch/tshirt-black.jpg" alt="" /><img src="assets/merch/tote.jpg" alt="" /><img src="assets/merch/diary-front.jpg" alt="" />
+              <img src="assets/merch/standee.jpg" alt="" /><img src="assets/mascot/wink.jpg" alt="" /><img src="assets/merch/brochure-outside.jpg" alt="" />
+              <img src="assets/merch/keychain.jpg" alt="" /><img src="assets/merch/message-card.jpg" alt="" /><img src="assets/merch/brochure-inside.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 1</p>
+          </div>
         </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--panels">
+            <div class="fl-panel">
+              <p class="mono fl-panel-tag">the promise</p>
+              <div class="voice-lines"><blockquote class="voice-line">Students aren't short on content. They're short on direction.<cite class="mono">the insight</cite></blockquote></div>
+              <p style="margin:16px 0 0;font-size:15px;line-height:1.55">Optima Learn is personalised CAT prep: an AI coach that adapts to each student, guided by 1:1 mentors who have already cracked the exam. The category sounds loud, cluttered and fear-led, so the promise claims the opposite space in three words.</p>
+            </div>
+            <div class="fl-panel">
+              <p class="mono fl-panel-tag">the colour · one blue</p>
+              <div class="swatches">
+                <figure class="swatch"><i style="background:#0066ff"></i><figcaption>Optima blue<span>#0066FF · primary</span></figcaption></figure>
+                <figure class="swatch"><i style="background:#1116af"></i><figcaption>Indigo<span>#1116AF · emphasis</span></figcaption></figure>
+                <figure class="swatch"><i style="background:#1c2433"></i><figcaption>Navy<span>#1C2433 · merch</span></figcaption></figure>
+                <figure class="swatch"><i style="background:#d7e7f9"></i><figcaption>Sky<span>#D7E7F9 · backgrounds</span></figcaption></figure>
+              </div>
+              <p style="margin:16px 0 0;font-size:15px;line-height:1.55">Holding the palette this tight is a deliberate trade: less variety, much faster recognition.</p>
+            </div>
+            <div class="fl-panel">
+              <p class="mono fl-panel-tag">the voice · never fear</p>
+              <div class="voice-lines">
+                <blockquote class="voice-line">Prep isn't hard because you're not smart. It's hard because no one tells you what to do next.<cite class="mono">brochure</cite></blockquote>
+                <blockquote class="voice-line">Everything you need. Nothing you don't.<cite class="mono">brochure</cite></blockquote>
+                <blockquote class="voice-line">The difference isn't effort. It's a system.<cite class="mono">brochure</cite></blockquote>
+              </div>
+            </div>
+          </div>
+          <div class="fl-closer fl-closer--promise" role="img" aria-label="Clarity over chaos."><p>Clarity<span>over chaos.</span></p></div>
+        </div>
+      </section>
 
-        <!-- the mascot is a supporting piece: a few moods as stickers, the full set opens on tap -->
-        <p class="hand prompt page-write">→ and the mascot, with a mood for every moment</p>
-        <button class="pin-open mascot-strip" data-full="assets/merch/mascot-moods.jpg" data-concept="We use the mascot across our websites, our designs and the app, with a mood for every moment. They're made with AI, but the direction, every pose and every mood, was mine." aria-label="Open all mascot moods">
-          <img src="assets/mascot/wink.jpg" alt="Mascot, winking" style="--r:-6deg" loading="lazy" />
-          <img src="assets/mascot/reading.jpg" alt="Mascot, reading" style="--r:4deg" loading="lazy" />
-          <img src="assets/mascot/thinking.jpg" alt="Mascot, thinking" style="--r:-3deg" loading="lazy" />
-          <img src="assets/mascot/idea.jpg" alt="Mascot, got an idea" style="--r:5deg" loading="lazy" />
-          <img src="assets/mascot/cool.jpg" alt="Mascot, feeling cool" style="--r:-5deg" loading="lazy" />
-          <img src="assets/mascot/music.jpg" alt="Mascot, in the zone" style="--r:3deg" loading="lazy" />
-          <img src="assets/mascot/grad.jpg" alt="Mascot, graduated" style="--r:-4deg" loading="lazy" />
-          <img src="assets/mascot/trophy.jpg" alt="Mascot, won" style="--r:6deg" loading="lazy" />
-          <span class="hand mascot-more">tap for all 20 ↗</span>
-        </button>
-      </div>
-    </section>
+      <!-- ============ 02 THE WELCOME KIT ============ -->
+      <section class="fl-ch" id="o-2">
+        <div class="fl-label mono"><span>optima learn · chapter 02</span><span>project 01</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the welcome kit<span class="star">✦</span></h2>
+            <p><b>The brief:</b> Early users took a chance on a new brand. Reward that decision, build loyalty from day one, and get Optima seen outside the app.</p>
+            <p><b>The result:</b> Every paid user received a kit: a tee, a tote, a diary, a keychain and a handwritten note from the founder. The brand now travels into colleges, offices and coaching centres, carried by the people who chose it.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage">
+              <img src="assets/merch/tshirt-black.jpg" alt="" /><img src="assets/merch/tote.jpg" alt="" /><img src="assets/merch/diary-front.jpg" alt="" />
+              <img src="assets/merch/keychain.jpg" alt="" /><img src="assets/merch/message-card.jpg" alt="" /><img src="assets/merch/diary-back.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 2</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--wrap">
+            <button class="fl-piece" style="--ar:.778" data-label="Tote bag" data-full="assets/merch/tote.jpg" data-title="Tote bag" data-concept="Deep navy with the logo and tagline, nothing else. The restraint is deliberate: a bag students carry every day has to look good first and branded second. Less on the bag means more people willing to carry it."><img src="assets/merch/tote.jpg" alt="Tote bag design" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:.778" data-label="Diary · front" data-full="assets/merch/diary-front.jpg|assets/merch/diary-back.jpg" data-layout="carousel" data-ar="0.778" data-title="Diary · front and back" data-concept="The diary is where students plan their prep, so it's the piece of the brand they see every single day. The cover surrounds the logo with a hand-drawn pattern of study icons. It makes the prep journey feel lighter, which is exactly what the brand promises."><img src="assets/merch/diary-front.jpg" alt="Diary, front cover" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button>
+            <button class="fl-piece" style="--ar:.778" data-label="Diary · back" data-full="assets/merch/diary-back.jpg|assets/merch/diary-front.jpg" data-layout="carousel" data-ar="0.778" data-title="Diary · front and back" data-concept="The diary is where students plan their prep, so it's the piece of the brand they see every single day. The cover surrounds the logo with a hand-drawn pattern of study icons. It makes the prep journey feel lighter, which is exactly what the brand promises."><img src="assets/merch/diary-back.jpg" alt="Diary, back cover" loading="lazy" /></button>
+          </div>
+          <div class="fl-row fl-row--wrap">
+            <button class="fl-piece" style="--ar:.738" data-label="Keychain" data-full="assets/merch/keychain.jpg" data-title="Keychain" data-concept="The mascot dressed like the student it's made for: hoodie on, headphones in, ready to study. The smallest item in the kit, and the one that travels furthest, on keys and bags, every day."><img src="assets/merch/keychain.jpg" alt="Keychain design" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:1.382" data-label="Handwritten note" data-full="assets/merch/message-card.jpg" data-title="Handwritten note" data-concept="Every kit carried a personalised, handwritten note signed by the founder. Growth makes brands feel distant; a handwritten card does the opposite. It tells a new paying user that a real person noticed them, at the exact moment they've decided to trust us."><img src="assets/merch/message-card.jpg" alt="Message card design" loading="lazy" /></button>
+          </div>
+          <button class="fl-closer" data-full="assets/merch/tshirt-black.jpg|assets/merch/tshirt-white.jpg" data-layout="carousel" data-ar="1.413" data-title="T-shirt · black and white" data-concept="A small logo on the front, the brand promise on the back: “Clarity over chaos.” Two colourways, so it works as everyday wear and not just as merch. A tee people actually wear takes the brand out of the app and into the places our audience spends its day."><img src="assets/merch/tshirt-black.jpg" alt="T-shirt design, black" loading="lazy" /></button>
+        </div>
+      </section>
+
+      <!-- ============ 03 PRINT FOR EVENTS ============ -->
+      <section class="fl-ch" id="o-3">
+        <div class="fl-label mono"><span>optima learn · chapter 03</span><span>project 01</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>print for events<span class="star">✦</span></h2>
+            <p><b>The brief:</b> At offline events, people give a stand a few seconds as they walk past. The print had to work at walking pace.</p>
+            <p><b>The result:</b> Every piece follows the same order: the promise first, proof second, the product third, and a QR code to sign up on the spot. Same blue, mascot and tone as the app, so print and digital feel like one brand.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage fl-collage--print">
+              <img src="assets/merch/standee.jpg" alt="" /><img src="assets/merch/brochure-outside.jpg" alt="" /><img src="assets/merch/brochure-inside.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 3</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row">
+            <button class="fl-piece" style="--ar:.5" data-label="Standee" data-full="assets/merch/standee.jpg" data-title="Standee" data-concept="It reads top to bottom at walking pace: one headline (“India's most personalised prep for MBA aspirants”), the app on a phone, the four core features, social proof and a QR code. If it can't be understood at walking pace, it doesn't work."><img src="assets/merch/standee.jpg" alt="Standee design" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:1.413" data-label="Brochure · outside" data-full="assets/merch/brochure-outside.jpg|assets/merch/brochure-inside.jpg" data-layout="carousel" data-ar="1.413" data-title="Brochure · outside and inside" data-concept="A tri-fold for events and walk-ins. The outside opens on the promise and a QR code. The inside leads with proof (where our learners got in) before it explains the product: human mentors plus an AI coach."><img src="assets/merch/brochure-outside.jpg" alt="Brochure, outside" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button>
+          </div>
+          <button class="fl-closer" data-full="assets/merch/brochure-inside.jpg|assets/merch/brochure-outside.jpg" data-layout="carousel" data-ar="1.413" data-title="Brochure · inside" data-concept="Proof before product. The inside spread opens on where our learners got in, then explains how Optima works: human mentors plus an AI coach. Same blue, same mascot and same tone as the app, so print and digital feel like one brand."><img src="assets/merch/brochure-inside.jpg" alt="Brochure, inside spread" loading="lazy" /></button>
+        </div>
+      </section>
+
+      <!-- ============ 04 THE MASCOT ============ -->
+      <section class="fl-ch" id="o-4">
+        <div class="fl-label mono"><span>optima learn · chapter 04</span><span>project 01</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the mascot<span class="star">✦</span></h2>
+            <p><b>The brief:</b> A system this clean can feel cold. The brand needed warmth without adding noise.</p>
+            <p><b>The result:</b> A mascot with 20 moods, one for every moment a student goes through, from a tough mock to a final result. It reacts, celebrates and keeps students company across the app, social and print.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage">
+              <img src="assets/mascot/wink.jpg" alt="" /><img src="assets/mascot/idea.jpg" alt="" /><img src="assets/mascot/cool.jpg" alt="" />
+              <img src="assets/mascot/reading.jpg" alt="" /><img src="assets/merch/keychain.jpg" alt="" /><img src="assets/mascot/thinking.jpg" alt="" />
+              <img src="assets/mascot/music.jpg" alt="" /><img src="assets/mascot/grad.jpg" alt="" /><img src="assets/mascot/trophy.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 4</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--wrap">
+            <button class="fl-piece" style="--ar:1.115" data-label="Wink" data-full="assets/mascot/wink.jpg" data-title="Mascot · wink" data-concept="One of 20 moods, one for every moment a student goes through, from a tough mock to a final result. The images are AI-generated; the character direction, every pose and every mood brief were mine."><img src="assets/mascot/wink.jpg" alt="Mascot, winking" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:1.115" data-label="Idea" data-full="assets/mascot/idea.jpg" data-title="Mascot · idea" data-concept="One of 20 moods, one for every moment a student goes through, from a tough mock to a final result. The images are AI-generated; the character direction, every pose and every mood brief were mine."><img src="assets/mascot/idea.jpg" alt="Mascot, idea" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:1.115" data-label="Reading" data-full="assets/mascot/reading.jpg" data-title="Mascot · reading" data-concept="One of 20 moods, one for every moment a student goes through, from a tough mock to a final result. The images are AI-generated; the character direction, every pose and every mood brief were mine."><img src="assets/mascot/reading.jpg" alt="Mascot, reading" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:1.115" data-label="Thinking" data-full="assets/mascot/thinking.jpg" data-title="Mascot · thinking" data-concept="One of 20 moods, one for every moment a student goes through, from a tough mock to a final result. The images are AI-generated; the character direction, every pose and every mood brief were mine."><img src="assets/mascot/thinking.jpg" alt="Mascot, thinking" loading="lazy" /></button>
+          </div>
+          <div class="fl-row fl-row--wrap">
+            <button class="fl-piece" style="--ar:1.115" data-label="Music" data-full="assets/mascot/music.jpg" data-title="Mascot · music" data-concept="One of 20 moods, one for every moment a student goes through, from a tough mock to a final result. The images are AI-generated; the character direction, every pose and every mood brief were mine."><img src="assets/mascot/music.jpg" alt="Mascot, listening to music" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:1.115" data-label="Cool" data-full="assets/mascot/cool.jpg" data-title="Mascot · cool" data-concept="One of 20 moods, one for every moment a student goes through, from a tough mock to a final result. The images are AI-generated; the character direction, every pose and every mood brief were mine."><img src="assets/mascot/cool.jpg" alt="Mascot, cool" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:1.115" data-label="Graduate" data-full="assets/mascot/grad.jpg" data-title="Mascot · graduate" data-concept="One of 20 moods, one for every moment a student goes through, from a tough mock to a final result. The images are AI-generated; the character direction, every pose and every mood brief were mine."><img src="assets/mascot/grad.jpg" alt="Mascot, graduate" loading="lazy" /></button>
+            <button class="fl-piece" style="--ar:1.115" data-label="Trophy" data-full="assets/mascot/trophy.jpg" data-title="Mascot · trophy" data-concept="One of 20 moods, one for every moment a student goes through, from a tough mock to a final result. The images are AI-generated; the character direction, every pose and every mood brief were mine."><img src="assets/mascot/trophy.jpg" alt="Mascot, holding a trophy" loading="lazy" /></button>
+          </div>
+          <button class="fl-closer" data-full="assets/merch/mascot-moods.jpg" data-title="20 moods" data-concept="Winking, studying, thinking, celebrating: 20 moods, one for every moment a student goes through, from a tough mock to a final result. The images are AI-generated; the character direction, every pose and every mood brief were mine."><img src="assets/merch/mascot-moods.jpg" alt="The mascot's 20 moods" loading="lazy" /></button>
+        </div>
+      </section>
+      <!-- ============ PROJECT 02 · DOUGH IT ============ -->
+      <section class="fl-open fl-open--project" id="doughit">
+        <div class="fl-label mono"><span>project 02</span><span>concept brand · Brief Me Baby #80</span></div>
+        <h1 style="margin-top:clamp(40px,6vw,80px)"><em>project 02</em>dough it</h1>
+        <p class="fl-sub">A concept brand identity for a ready-to-bake cookie dough, made for a design brief: a cheeky mascot, a hand-lettered wordmark, a dessert palette and four flavours across tubs, boxes and bags. My first project in Illustrator.</p>
+        <ul class="fl-stats">
+          <li><b>4</b> flavours</li>
+          <li><b>3</b> mascot poses</li>
+          <li><b>10</b> carousel slides</li>
+        </ul>
+        <nav class="fl-index" aria-label="Chapters">
+          <a href="#d-1"><i><img src="assets/doughit/book-03-logo.jpg" alt="" style="object-position:50% 40%" /></i><span class="mono">01 · the brand</span></a>
+          <a href="#d-2"><i><img src="assets/doughit/book-06-colour.jpg" alt="" style="object-position:50% 55%" /></i><span class="mono">02 · the system</span></a>
+          <a href="#d-3"><i><img src="assets/doughit/tub-classic.jpg" alt="" /></i><span class="mono">03 · the packaging</span></a>
+          <a href="#d-4"><i><img src="assets/doughit/carousel-10.jpg" alt="" style="object-position:50% 30%" /></i><span class="mono">04 · the carousel</span></a>
+        </nav>
+        
+      </section>
+
+      <!-- ============ 01 THE BRAND ============ -->
+      <section class="fl-ch" id="d-1">
+        <div class="fl-label mono"><span>dough it · chapter 01</span><span>project 02</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the brand<span class="star">✦</span></h2>
+            <p><b>The brief:</b> Brief Me Baby brief #80: Dough It, a ready-to-bake cookie dough brand. Indulgent flavours, gooey centres and the satisfaction of homemade cookies without the mess, for late-night cravings and spontaneous sweet treats.</p>
+            <p><b>The result:</b> A brand that sounds like its product: playful, gooey, cheeky, homemade and made for late nights. A hand-lettered wordmark, a rolling-pin mascot and a tagline that says exactly what it is: ready-to-bake cookie dough.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage"><img src="assets/doughit/book-01-cover.jpg" alt="" /><img src="assets/doughit/book-03-logo.jpg" alt="" /><img src="assets/doughit/book-08-mascot.jpg" alt="" /><img src="assets/doughit/book-06-colour.jpg" alt="" /><img src="assets/doughit/carousel-01.jpg" alt="" /><img src="assets/doughit/book-07-type.jpg" alt="" /><img src="assets/doughit/tub-classic.jpg" alt="" /><img src="assets/doughit/box-double.jpg" alt="" /><img src="assets/doughit/book-17-late-night.jpg" alt="" /></div>
+            <p class="fl-num">chapter 1</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:0.8" data-label="The story" data-full="assets/doughit/book-02-story.jpg" data-title="Meet Dough It" data-concept="The brand story and its tone of voice on one page: playful, gooey, cheeky, homemade, late-night. Every decision after this checks back against those five words."><img src="assets/doughit/book-02-story.jpg" alt="Brand book page: meet Dough It" loading="lazy" /></button><button class="fl-piece" style="--ar:0.8" data-label="Primary logo" data-full="assets/doughit/book-03-logo.jpg" data-title="Primary logo" data-concept="The mascot leads. The kneading-hands badge is the seal, used on lids, stickers and stamps."><img src="assets/doughit/book-03-logo.jpg" alt="Brand book page: the primary logo" loading="lazy" /></button><button class="fl-piece" style="--ar:0.8" data-label="Logo suite" data-full="assets/doughit/book-04-suite.jpg" data-title="Logo suite" data-concept="Primary lockup, horizontal lockup, wordmark, reversed wordmark, stamp badge and mascot icon, so the brand fits a tub lid as easily as an Instagram sticker."><img src="assets/doughit/book-04-suite.jpg" alt="Brand book page: the logo suite" loading="lazy" /></button></div><div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:0.8" data-label="The mascot" data-full="assets/doughit/book-08-mascot.jpg" data-title="The mascot · three poses" data-concept="A cookie with a rolling pin, designed in Illustrator (my first time using it), plus three poses for three jobs: hey there!, lick the spoon and squish me!"><img src="assets/doughit/book-08-mascot.jpg" alt="Brand book page: the mascot and its three poses" loading="lazy" /></button><button class="fl-piece" style="--ar:0.8" data-label="Give it room" data-full="assets/doughit/book-05-usage.jpg" data-title="Give it room" data-concept="The rules that keep the logo intact: clear space on every side, a minimum size, and no stretching, squashing, colour swaps or tilting."><img src="assets/doughit/book-05-usage.jpg" alt="Brand book page: logo clear space and misuse" loading="lazy" /></button></div><button class="fl-closer" data-full="assets/doughit/sticker-stamp.jpg" data-title="Stamp sticker" data-concept="The kneading-hands badge as a round seal sticker, the smallest place the brand has to work."><img src="assets/doughit/sticker-stamp.jpg" alt="Dough It stamp sticker mockup" loading="lazy" /></button>
+        </div>
+      </section>
+      <!-- ============ 02 THE SYSTEM ============ -->
+      <section class="fl-ch" id="d-2">
+        <div class="fl-label mono"><span>dough it · chapter 02</span><span>project 02</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the system<span class="star">✦</span></h2>
+            <p><b>The brief:</b> A dessert brand has to look edible. The palette, type and pattern had to feel warm and indulgent, and still hold together across tubs, boxes, bags and social.</p>
+            <p><b>The result:</b> Four colours taken from the product itself: milk blue, chocopie, raw dough and butter. Milk blue and chocopie lead every layout; raw dough and butter warm things up as backgrounds, flavour colours and highlights. No other colours, and every typeface has one job.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage"><img src="assets/doughit/book-06-colour.jpg" alt="" /><img src="assets/doughit/book-07-type.jpg" alt="" /><img src="assets/doughit/book-09-pattern.jpg" alt="" /><img src="assets/doughit/stickers.jpg" alt="" /><img src="assets/doughit/carousel-05.jpg" alt="" /><img src="assets/doughit/book-05-usage.jpg" alt="" /><img src="assets/doughit/carousel-02.jpg" alt="" /><img src="assets/doughit/book-10-flavours.jpg" alt="" /><img src="assets/doughit/tubs-butter-classic.jpg" alt="" /></div>
+            <p class="fl-num">chapter 2</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:0.8" data-label="The palette" data-full="assets/doughit/book-06-colour.jpg" data-title="The palette" data-concept="Milk blue and chocopie lead every layout. Raw dough and butter warm things up as backgrounds, flavour colours and highlights. No other colours."><img src="assets/doughit/book-06-colour.jpg" alt="Brand book page: the palette" loading="lazy" /></button><button class="fl-piece" style="--ar:0.8" data-label="Type" data-full="assets/doughit/book-07-type.jpg" data-title="Type · one job each" data-concept="The hand-lettered logo font is used for the words Dough It and nothing else. Futura Bold in wide-spaced capitals carries the tagline, Futura Medium in lowercase carries headlines and flavour names, and a clean sans handles body copy and small print."><img src="assets/doughit/book-07-type.jpg" alt="Brand book page: typography" loading="lazy" /></button><button class="fl-piece" style="--ar:0.8" data-label="Pattern" data-full="assets/doughit/book-09-pattern.jpg" data-title="Pattern" data-concept="The mascot and its lines repeated on milk blue, for wrapping, tissue and tub sleeves."><img src="assets/doughit/book-09-pattern.jpg" alt="Brand book page: the pattern" loading="lazy" /></button></div><button class="fl-closer" data-full="assets/doughit/stickers.jpg" data-title="Sticker sheet" data-concept="The mascot as a “let&#x27;s dough it!” sticker on milk blue: the brand&#x27;s voice, in its friendliest format."><img src="assets/doughit/stickers.jpg" alt="Dough It sticker sheet mockup" loading="lazy" /></button>
+        </div>
+      </section>
+      <!-- ============ 03 THE PACKAGING ============ -->
+      <section class="fl-ch" id="d-3">
+        <div class="fl-label mono"><span>dough it · chapter 03</span><span>project 02</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the packaging<span class="star">✦</span></h2>
+            <p><b>The brief:</b> Four flavours that would sit on one shelf and still read as one family, across tubs, a box of 12 and delivery bags.</p>
+            <p><b>The result:</b> One tub, four flavours: classic choc chip, double choc fudge, salted caramel and brown butter vanilla. The chocolate drip changes with every flavour while the wordmark and mascot stay put, so each tub is easy to spot and the family stays clear.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage"><img src="assets/doughit/tub-classic.jpg" alt="" /><img src="assets/doughit/tubs-double-caramel.jpg" alt="" /><img src="assets/doughit/tubs-butter-classic.jpg" alt="" /><img src="assets/doughit/box-classic.jpg" alt="" /><img src="assets/doughit/box-double.jpg" alt="" /><img src="assets/doughit/bags.jpg" alt="" /><img src="assets/doughit/book-10-flavours.jpg" alt="" /><img src="assets/doughit/stickers.jpg" alt="" /><img src="assets/doughit/sticker-stamp.jpg" alt="" /></div>
+            <p class="fl-num">chapter 3</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:1.333" data-label="Classic choc chip" data-full="assets/doughit/tub-classic.jpg" data-title="Tub · classic choc chip" data-concept="Milk blue with a chocolate drip: the flagship flavour in the brand&#x27;s two lead colours."><img src="assets/doughit/tub-classic.jpg" alt="Classic choc chip tub mockup" loading="lazy" /></button><button class="fl-piece" style="--ar:1.333" data-label="Double choc fudge" data-full="assets/doughit/tubs-double-caramel.jpg" data-title="Tubs · double choc fudge" data-concept="The darkest flavour gets chocopie. The drip and label colour change with the flavour; the wordmark and mascot never do."><img src="assets/doughit/tubs-double-caramel.jpg" alt="Double choc fudge tub mockup" loading="lazy" /></button></div><div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:1.333" data-label="Box of 12" data-full="assets/doughit/box-classic.jpg" data-title="Box of 12 · classic choc chip" data-concept="The box carries the same drip and mascot as the tub, with the count up front."><img src="assets/doughit/box-classic.jpg" alt="Classic choc chip box mockup" loading="lazy" /></button><button class="fl-piece" style="--ar:1.333" data-label="Box of 12 · fudge" data-full="assets/doughit/box-double.jpg" data-title="Box of 12 · double choc fudge" data-concept="Chocopie for the darkest flavour, so the colour tells you what&#x27;s inside before the name does."><img src="assets/doughit/box-double.jpg" alt="Double choc fudge box mockup" loading="lazy" /></button></div><div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:0.8" data-label="Four flavours" data-full="assets/doughit/book-10-flavours.jpg" data-title="Four flavours" data-concept="Classic choc chip, double choc fudge, salted caramel and brown butter vanilla, each with its own colour strip from the palette."><img src="assets/doughit/book-10-flavours.jpg" alt="Brand book page: the four flavours" loading="lazy" /></button><button class="fl-piece" style="--ar:1.333" data-label="Delivery bags" data-full="assets/doughit/bags.jpg" data-title="Delivery bags" data-concept="Plain kraft with the wordmark and mascot printed on, closed with the brand sticker."><img src="assets/doughit/bags.jpg" alt="Kraft delivery bag mockups" loading="lazy" /></button></div><button class="fl-closer" data-full="assets/doughit/tubs-butter-classic.jpg" data-title="Tubs · brown butter vanilla" data-concept="Butter for the lightest flavour. Side by side with classic choc chip, the family reads at a glance."><img src="assets/doughit/tubs-butter-classic.jpg" alt="Brown butter vanilla tub mockup" loading="lazy" /></button>
+        </div>
+      </section>
+      <!-- ============ 04 THE CAROUSEL ============ -->
+      <section class="fl-ch" id="d-4">
+        <div class="fl-label mono"><span>dough it · chapter 04</span><span>project 02</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the carousel<span class="star">✦</span></h2>
+            <p><b>The brief:</b> Present the identity as one Instagram carousel, so people meet the brand the way a customer would: one piece at a time.</p>
+            <p><b>The result:</b> A 10-slide carousel that walks from the wordmark to the mascot, palette, flavours and packaging, and ends on the moment the whole brand is built for: it's 11pm. you know what to do.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage"><img src="assets/doughit/carousel-01.jpg" alt="" /><img src="assets/doughit/carousel-02.jpg" alt="" /><img src="assets/doughit/carousel-03.jpg" alt="" /><img src="assets/doughit/carousel-04.jpg" alt="" /><img src="assets/doughit/carousel-05.jpg" alt="" /><img src="assets/doughit/carousel-06.jpg" alt="" /><img src="assets/doughit/carousel-07.jpg" alt="" /><img src="assets/doughit/carousel-08.jpg" alt="" /><img src="assets/doughit/carousel-09.jpg" alt="" /></div>
+            <p class="fl-num">chapter 4</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:0.8" data-label="Slide 1" data-full="assets/doughit/carousel-01.jpg|assets/doughit/carousel-02.jpg|assets/doughit/carousel-03.jpg|assets/doughit/carousel-04.jpg|assets/doughit/carousel-05.jpg|assets/doughit/carousel-06.jpg|assets/doughit/carousel-07.jpg|assets/doughit/carousel-08.jpg|assets/doughit/carousel-09.jpg|assets/doughit/carousel-10.jpg" data-layout="carousel" data-ar="0.8" data-title="Carousel · slide 1 of 10" data-concept="A 10-slide carousel that presents the identity one element at a time: the wordmark, the story, the mascot, colour and type, the flavours and the packaging. It ends on the late-night moment the brand is built for."><img src="assets/doughit/carousel-01.jpg" alt="Carousel, slide 1" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button><button class="fl-piece" style="--ar:0.8" data-label="Slide 2" data-full="assets/doughit/carousel-02.jpg|assets/doughit/carousel-03.jpg|assets/doughit/carousel-04.jpg|assets/doughit/carousel-05.jpg|assets/doughit/carousel-06.jpg|assets/doughit/carousel-07.jpg|assets/doughit/carousel-08.jpg|assets/doughit/carousel-09.jpg|assets/doughit/carousel-10.jpg|assets/doughit/carousel-01.jpg" data-layout="carousel" data-ar="0.8" data-title="Carousel · slide 2 of 10" data-concept="A 10-slide carousel that presents the identity one element at a time: the wordmark, the story, the mascot, colour and type, the flavours and the packaging. It ends on the late-night moment the brand is built for."><img src="assets/doughit/carousel-02.jpg" alt="Carousel, slide 2" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button><button class="fl-piece" style="--ar:0.8" data-label="Slide 3" data-full="assets/doughit/carousel-03.jpg|assets/doughit/carousel-04.jpg|assets/doughit/carousel-05.jpg|assets/doughit/carousel-06.jpg|assets/doughit/carousel-07.jpg|assets/doughit/carousel-08.jpg|assets/doughit/carousel-09.jpg|assets/doughit/carousel-10.jpg|assets/doughit/carousel-01.jpg|assets/doughit/carousel-02.jpg" data-layout="carousel" data-ar="0.8" data-title="Carousel · slide 3 of 10" data-concept="A 10-slide carousel that presents the identity one element at a time: the wordmark, the story, the mascot, colour and type, the flavours and the packaging. It ends on the late-night moment the brand is built for."><img src="assets/doughit/carousel-03.jpg" alt="Carousel, slide 3" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button><button class="fl-piece" style="--ar:0.8" data-label="Slide 4" data-full="assets/doughit/carousel-04.jpg|assets/doughit/carousel-05.jpg|assets/doughit/carousel-06.jpg|assets/doughit/carousel-07.jpg|assets/doughit/carousel-08.jpg|assets/doughit/carousel-09.jpg|assets/doughit/carousel-10.jpg|assets/doughit/carousel-01.jpg|assets/doughit/carousel-02.jpg|assets/doughit/carousel-03.jpg" data-layout="carousel" data-ar="0.8" data-title="Carousel · slide 4 of 10" data-concept="A 10-slide carousel that presents the identity one element at a time: the wordmark, the story, the mascot, colour and type, the flavours and the packaging. It ends on the late-night moment the brand is built for."><img src="assets/doughit/carousel-04.jpg" alt="Carousel, slide 4" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button><button class="fl-piece" style="--ar:0.8" data-label="Slide 5" data-full="assets/doughit/carousel-05.jpg|assets/doughit/carousel-06.jpg|assets/doughit/carousel-07.jpg|assets/doughit/carousel-08.jpg|assets/doughit/carousel-09.jpg|assets/doughit/carousel-10.jpg|assets/doughit/carousel-01.jpg|assets/doughit/carousel-02.jpg|assets/doughit/carousel-03.jpg|assets/doughit/carousel-04.jpg" data-layout="carousel" data-ar="0.8" data-title="Carousel · slide 5 of 10" data-concept="A 10-slide carousel that presents the identity one element at a time: the wordmark, the story, the mascot, colour and type, the flavours and the packaging. It ends on the late-night moment the brand is built for."><img src="assets/doughit/carousel-05.jpg" alt="Carousel, slide 5" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button></div><div class="fl-row fl-row--wrap"><button class="fl-piece" style="--ar:0.8" data-label="Slide 6" data-full="assets/doughit/carousel-06.jpg|assets/doughit/carousel-07.jpg|assets/doughit/carousel-08.jpg|assets/doughit/carousel-09.jpg|assets/doughit/carousel-10.jpg|assets/doughit/carousel-01.jpg|assets/doughit/carousel-02.jpg|assets/doughit/carousel-03.jpg|assets/doughit/carousel-04.jpg|assets/doughit/carousel-05.jpg" data-layout="carousel" data-ar="0.8" data-title="Carousel · slide 6 of 10" data-concept="A 10-slide carousel that presents the identity one element at a time: the wordmark, the story, the mascot, colour and type, the flavours and the packaging. It ends on the late-night moment the brand is built for."><img src="assets/doughit/carousel-06.jpg" alt="Carousel, slide 6" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button><button class="fl-piece" style="--ar:0.8" data-label="Slide 7" data-full="assets/doughit/carousel-07.jpg|assets/doughit/carousel-08.jpg|assets/doughit/carousel-09.jpg|assets/doughit/carousel-10.jpg|assets/doughit/carousel-01.jpg|assets/doughit/carousel-02.jpg|assets/doughit/carousel-03.jpg|assets/doughit/carousel-04.jpg|assets/doughit/carousel-05.jpg|assets/doughit/carousel-06.jpg" data-layout="carousel" data-ar="0.8" data-title="Carousel · slide 7 of 10" data-concept="A 10-slide carousel that presents the identity one element at a time: the wordmark, the story, the mascot, colour and type, the flavours and the packaging. It ends on the late-night moment the brand is built for."><img src="assets/doughit/carousel-07.jpg" alt="Carousel, slide 7" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button><button class="fl-piece" style="--ar:0.8" data-label="Slide 8" data-full="assets/doughit/carousel-08.jpg|assets/doughit/carousel-09.jpg|assets/doughit/carousel-10.jpg|assets/doughit/carousel-01.jpg|assets/doughit/carousel-02.jpg|assets/doughit/carousel-03.jpg|assets/doughit/carousel-04.jpg|assets/doughit/carousel-05.jpg|assets/doughit/carousel-06.jpg|assets/doughit/carousel-07.jpg" data-layout="carousel" data-ar="0.8" data-title="Carousel · slide 8 of 10" data-concept="A 10-slide carousel that presents the identity one element at a time: the wordmark, the story, the mascot, colour and type, the flavours and the packaging. It ends on the late-night moment the brand is built for."><img src="assets/doughit/carousel-08.jpg" alt="Carousel, slide 8" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button><button class="fl-piece" style="--ar:0.8" data-label="Slide 9" data-full="assets/doughit/carousel-09.jpg|assets/doughit/carousel-10.jpg|assets/doughit/carousel-01.jpg|assets/doughit/carousel-02.jpg|assets/doughit/carousel-03.jpg|assets/doughit/carousel-04.jpg|assets/doughit/carousel-05.jpg|assets/doughit/carousel-06.jpg|assets/doughit/carousel-07.jpg|assets/doughit/carousel-08.jpg" data-layout="carousel" data-ar="0.8" data-title="Carousel · slide 9 of 10" data-concept="A 10-slide carousel that presents the identity one element at a time: the wordmark, the story, the mascot, colour and type, the flavours and the packaging. It ends on the late-night moment the brand is built for."><img src="assets/doughit/carousel-09.jpg" alt="Carousel, slide 9" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button><button class="fl-piece" style="--ar:0.8" data-label="Slide 10" data-full="assets/doughit/carousel-10.jpg|assets/doughit/carousel-01.jpg|assets/doughit/carousel-02.jpg|assets/doughit/carousel-03.jpg|assets/doughit/carousel-04.jpg|assets/doughit/carousel-05.jpg|assets/doughit/carousel-06.jpg|assets/doughit/carousel-07.jpg|assets/doughit/carousel-08.jpg|assets/doughit/carousel-09.jpg" data-layout="carousel" data-ar="0.8" data-title="Carousel · slide 10 of 10" data-concept="A 10-slide carousel that presents the identity one element at a time: the wordmark, the story, the mascot, colour and type, the flavours and the packaging. It ends on the late-night moment the brand is built for."><img src="assets/doughit/carousel-10.jpg" alt="Carousel, slide 10" loading="lazy" /><svg class="pin-multi" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12"/></svg></button></div><div class="fl-closer fl-closer--promise" role="img" aria-label="because sometimes, you just need to dough it." style="background:#46292b"><p style="color:#fdf0b5;font-size:clamp(40px,7vw,120px)">because sometimes,<span style="color:#c3dcea">you just need to dough it.</span></p></div>
+        </div>
+      </section>
+      <div class="fl-end"></div>
+    </div>
 
     <!-- ============ NEXT ============ -->
     <section class="contact case-next" data-tear="top">
@@ -153,11 +303,11 @@
     </section>
   </main>
 
-  <dialog class="lightbox" aria-label="Design preview"><div class="lightbox-imgs"></div><p class="lightbox-concept"></p><span class="mono lightbox-close">click anywhere to close ✕</span></dialog>
+  <dialog class="lightbox lightbox--ig" aria-label="Design preview"><div class="lightbox-imgs"></div><p class="lightbox-concept"></p><span class="mono lightbox-close">click anywhere to close ✕</span></dialog>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=16"></script>
 </body>
 </html>
