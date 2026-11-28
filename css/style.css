@@ -581,6 +581,7 @@ em { font-family: var(--f-hand); font-style: normal; font-weight: 700; }
 .line::before { left: calc(-4% - 5px); }
 .line::after { right: calc(-4% - 5px); }
 .line-tickets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: clamp(24px, 3vw, 44px); }
+.line-tickets--2 { grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; column-gap: clamp(60px, 10vw, 160px); }
 /* each peg sits where the sagging thread passes over it */
 .hang { position: relative; padding-top: 34px; margin-top: 12px; transform: rotate(var(--r)); transform-origin: 50% 16px; transition: opacity 0.35s, filter 0.35s; }
 .hang:nth-child(2) { margin-top: 24px; }

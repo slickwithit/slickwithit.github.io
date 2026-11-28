@@ -29,7 +29,9 @@
 /* project divider (a page with more than one project): same as the opener, a size down, with room above */
 .fl-open--project { margin-top: clamp(80px, 10vw, 150px); padding-bottom: 0; }
 .fl-open--project h1 { font-size: clamp(56px, 10vw, 160px); }
+.fl-open--project h1 em { margin-bottom: 0.12em; }
 .fl-index--projects { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 620px; }
+.fl-index--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 900px; }
 
 /* ---------- beat 1: intro slide ---------- */
 .fl-ch { padding-top: clamp(70px, 9vw, 130px); scroll-margin-top: 70px; }
@@ -107,10 +109,20 @@
 .fl-hooks { display: grid; gap: 10px; }
 .fl-hooks .voice-line { font-size: clamp(15px, 1.35vw, 19px); }
 
+/* video as the work or the closer: a dark frame, the video sized to fit the screen */
+.fl-closer--video { display: flex; justify-content: center; align-items: center; cursor: default; }
+.fl-closer--video video { display: block; width: auto; max-width: 100%; max-height: 86vh; border-radius: 14px; background: #000; }
+.fl-closer--video.is-wide video { width: 100%; max-height: none; }
+/* looping clips inside a justified row (they play while on screen via data-inview) */
+.fl-clip { position: relative; flex: var(--ar) 1 0; aspect-ratio: var(--ar); min-width: 0; margin: 0; background: #111; overflow: hidden; }
+.fl-clip video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.fl-clip figcaption { position: absolute; left: 12px; bottom: 12px; padding: 6px 10px; background: var(--paper-2); color: var(--ink); font-size: 11px; }
+@media (max-width: 820px) { .fl-row--wrap .fl-clip { flex: 1 1 calc(50% - 2px); aspect-ratio: 1.6; } }
+
 /* ---------- small screens ---------- */
 @media (max-width: 820px) {
   .fl-index--projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .fl-index, .fl-index--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fl-index, .fl-index--5, .fl-index--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fl-intro { grid-template-columns: 1fr; }
   .fl-preview { order: -1; margin-right: 14px; }
   .fl-row--wrap { flex-wrap: wrap; }

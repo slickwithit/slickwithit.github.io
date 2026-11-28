@@ -4,12 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Product Marketing · Archita</title>
-  <meta name="description" content="A launch film and short feature clips for Optima Learn." />
+  <meta name="description" content="Product marketing for Optima Learn: users kept asking for features we already had, so every feature got its own short video, plus one launch film." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=19" />
+  <link rel="stylesheet" href="css/layouts.css?v=11" />
+  <link rel="stylesheet" href="css/flow.css?v=11" />
 </head>
 <body>
   <header class="site-header">
@@ -22,119 +24,106 @@
   </header>
 
   <main id="top" class="case">
-    <!-- ============ CASE HERO ============ -->
-    <section class="case-hero">
+    <!-- D: the behance flow. an opener, then chapters that each run the same loop:
+         intro slide (brief + result + preview) → the work, edge to edge → one closing shot.
+         old version of this page: product-videos-v1.html -->
+    <div class="fl">
       <a href="index.html#work" class="mono back-link">← all work</a>
-      <div class="case-title-row">
-        <h1 class="case-title case-title--long">Product Marketing<br /><em>feedback &amp; launches</em></h1>
-        <span class="stamp stamp--big mono">Product</span>
-      </div>
-      <p class="case-summary" data-reveal>I talk to our users a lot. On those calls, many of their problems were ones Optima had already solved, they just didn't know the feature existed. So every feature got its own simple video.</p>
 
-      <dl class="case-meta" data-reveal-stagger>
-        <div><dt class="mono">Role</dt><dd>Content Head → Brand Manager</dd></div>
-        <div><dt class="mono">Product</dt><dd>Optima Learn, CAT prep</dd></div>
-        <div><dt class="mono">Made</dt><dd>1 launch film, 7 feature clips</dd></div>
-        <div><dt class="mono">Made with</dt><dd>Kite (launch), Claude (clips)</dd></div>
-      </dl>
-    </section>
+      <!-- ============ OPENER ============ -->
+      <section class="fl-open" style="margin-top:18px">
+        <div class="fl-label mono"><span>product marketing</span><span>Optima Learn · Mar 2026 – Now</span></div>
+        <h1 style="margin-top:clamp(40px,6vw,80px)">product marketing</h1>
+        <p class="fl-sub">I talk to our users a lot. On those calls, many of their problems were ones Optima had already solved: they just didn't know the feature existed. So every feature got its own simple video.</p>
+        <ul class="fl-stats">
+          <li><b>1</b> launch film</li>
+          <li><b>7</b> feature clips</li>
+        </ul>
+        <nav class="fl-index fl-index--3" aria-label="Chapters">
+          <a href="#ch-1"><i><span class="hl-swatch" style="background:var(--accent)">they didn't<br />know.</span></i><span class="mono">01 · the thinking</span></a>
+          <a href="#ch-2"><i><img src="assets/videos/launch.jpg" alt="" /></i><span class="mono">02 · the launch film</span></a>
+          <a href="#ch-3"><i><img src="assets/videos/aivoice.jpg" alt="" /></i><span class="mono">03 · the feature clips</span></a>
+        </nav>
+      </section>
 
-    <!-- ============ 01 THE THINKING ============ -->
-    <section class="case-block case-block--insight">
-      <p class="case-num mono">01</p>
-      <div>
-        <h2 class="tape-title">The thinking</h2>
-        <p class="hand prompt page-write">→ where it started</p>
-        <p class="case-text" data-reveal>I talk to a lot of our users. Most of it is feedback: what's working, what isn't. That goes back to the product team, and it shapes our content too.</p>
-        <p class="case-text" data-reveal>On those calls, users brought up a lot of problems. Some we could go and solve. But many of them, our features were already solving: the AI voice tutor, mentor calls, mock tests, the study planner, the quiz builder, RC Verse. The solution was right there on the platform. People just didn't know it existed.</p>
-        <p class="case-text" data-reveal>A launch video is the industry standard, and we made one. But one video wasn't enough. Every feature needed its own, and it had to be simple enough to get in a few seconds.</p>
-        <blockquote class="insight-card" data-reveal="tilt" style="--r:-1.5deg">
-          <i class="tape"></i>
-          “The solution was already there. People just didn't know it existed.”
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- ============ 02 THE STRATEGY ============ -->
-    <section class="case-block">
-      <p class="case-num mono">02</p>
-      <div>
-        <h2 class="tape-title">The strategy</h2>
-        <p class="hand prompt page-write">→ the plan</p>
-        <ol class="steps steps--four" data-reveal-stagger>
-          <li><b>Talk to users</b><span>Feedback goes into the product, and into the content.</span></li>
-          <li><b>Spot the gap</b><span>Problems users raised that a feature already solved, if only they knew about it.</span></li>
-          <li><b>One launch film</b><span>The industry standard: the whole product, in one go.</span></li>
-          <li><b>One clip per feature</b><span>Every feature gets its own video, simple enough to get in seconds.</span></li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ 03 THE DESIGN ============ -->
-    <section class="case-block">
-      <p class="case-num mono">03</p>
-      <div>
-        <h2 class="tape-title">The design</h2>
-        <p class="hand prompt page-write">→ how it looks</p>
-        <p class="case-text" data-reveal>Big type on Optima blue, cut with real product screens. The feature clips are short and silent, made to loop. The launch film was made in Kite, and the clips with Claude, vibe coding all the way.</p>
-      </div>
-    </section>
-
-    <!-- ============ 04 THE WORK ============ -->
-    <section class="case-block">
-      <p class="case-num mono">04</p>
-      <div>
-        <h2 class="tape-title">The work</h2>
-        <p class="hand prompt page-write">→ the launch film</p>
-        <figure class="video-frame" data-reveal="tilt" style="--r:-0.8deg">
-          <i class="tape"></i>
-          <video src="assets/videos/launch.mp4" poster="assets/videos/launch.jpg" controls playsinline preload="none"></video>
-        </figure>
-      </div>
-    </section>
-
-    <!-- feature clips play on their own while they're on screen -->
-    <section class="case-block case-block--last">
-      <p class="case-num mono"></p>
-      <div>
-        <p class="hand prompt page-write">→ and one clip per feature</p>
-        <div class="clip-grid">
-          <figure class="clip" style="--r:-1.5deg">
-            <video src="assets/videos/aivoice.mp4" poster="assets/videos/aivoice.jpg" muted loop playsinline preload="none" data-inview aria-label="AI voice tutor feature clip"></video>
-            <figcaption class="mono">AI voice tutor</figcaption>
-          </figure>
-          <figure class="clip" style="--r:1deg">
-            <video src="assets/videos/findmentor.mp4" poster="assets/videos/findmentor.jpg" muted loop playsinline preload="none" data-inview aria-label="Find a mentor feature clip"></video>
-            <figcaption class="mono">Find a mentor</figcaption>
-          </figure>
-          <figure class="clip" style="--r:1.5deg">
-            <video src="assets/videos/mentor.mp4" poster="assets/videos/mentor.jpg" muted loop playsinline preload="none" data-inview aria-label="Book a mentor feature clip"></video>
-            <figcaption class="mono">Book a mentor</figcaption>
-          </figure>
-          <figure class="clip" style="--r:-1deg">
-            <video src="assets/videos/mocks.mp4" poster="assets/videos/mocks.jpg" muted loop playsinline preload="none" data-inview aria-label="Mock tests feature clip"></video>
-            <figcaption class="mono">Mock tests</figcaption>
-          </figure>
-          <figure class="clip" style="--r:-2deg">
-            <video src="assets/videos/planner.mp4" poster="assets/videos/planner.jpg" muted loop playsinline preload="none" data-inview aria-label="Study planner feature clip"></video>
-            <figcaption class="mono">Study planner</figcaption>
-          </figure>
-          <figure class="clip" style="--r:1.5deg">
-            <video src="assets/videos/quizbuilder.mp4" poster="assets/videos/quizbuilder.jpg" muted loop playsinline preload="none" data-inview aria-label="Quiz builder feature clip"></video>
-            <figcaption class="mono">Quiz builder</figcaption>
-          </figure>
-          <figure class="clip" style="--r:-1deg">
-            <video src="assets/videos/rcverse.mp4" poster="assets/videos/rcverse.jpg" muted loop playsinline preload="none" data-inview aria-label="RC Verse feature clip"></video>
-            <figcaption class="mono">RC Verse</figcaption>
-          </figure>
+      <!-- ============ 01 THE THINKING ============ -->
+      <section class="fl-ch" id="ch-1">
+        <div class="fl-label mono"><span>chapter 01</span><span>product marketing</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the thinking<span class="star">✦</span></h2>
+            <p><b>The brief:</b> I talk to a lot of our users. Most of it is feedback, and it goes back to the product team and into our content. On those calls, users brought up a lot of problems, and many of them our features were already solving: the AI voice tutor, mentor calls, mock tests, the study planner, the quiz builder, RC Verse.</p>
+            <p><b>The result:</b> The solution was right there on the platform. People just didn't know it existed. A launch video is the industry standard, and we made one, but every feature also needed its own video, simple enough to get in a few seconds.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage fl-collage--wide">
+              <img src="assets/videos/launch.jpg" alt="" /><img src="assets/videos/aivoice.jpg" alt="" />
+              <img src="assets/videos/mocks.jpg" alt="" /><img src="assets/videos/planner.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 1</p>
+          </div>
         </div>
-      </div>
-    </section>
+        <div class="fl-work">
+          <div class="fl-row fl-row--panels">
+            <div class="fl-panel fl-step"><p class="mono fl-panel-tag">01</p><b>Talk to users</b><p>Feedback goes into the product, and into the content.</p></div>
+            <div class="fl-panel fl-step"><p class="mono fl-panel-tag">02</p><b>Spot the gap</b><p>Problems users raised that a feature already solved, if only they knew about it.</p></div>
+            <div class="fl-panel fl-step"><p class="mono fl-panel-tag">03</p><b>One launch film</b><p>The industry standard: the whole product, in one go.</p></div>
+            <div class="fl-panel fl-step"><p class="mono fl-panel-tag">04</p><b>One clip per feature</b><p>Every feature gets its own video, simple enough to get in seconds.</p></div>
+          </div>
+          <div class="fl-closer fl-closer--quote" role="img" aria-label="The solution was already there. People just didn't know it existed."><p>“The solution was already there. People just didn't know it existed.”</p></div>
+        </div>
+      </section>
+
+      <!-- ============ 02 THE LAUNCH FILM ============ -->
+      <section class="fl-ch" id="ch-2">
+        <div class="fl-label mono"><span>chapter 02</span><span>product marketing</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the launch film<span class="star">✦</span></h2>
+            <p><b>The brief:</b> Show the whole product in one go: the industry-standard launch video.</p>
+            <p><b>The result:</b> Big type on Optima blue, cut with real product screens. Made in Kite.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage fl-collage--wide" style="grid-template-columns:1fr">
+              <img src="assets/videos/launch.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 2</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-closer fl-closer--video is-wide"><video src="assets/videos/launch.mp4" poster="assets/videos/launch.jpg" controls playsinline preload="none" aria-label="Optima Learn launch film"></video></div>
+        </div>
+      </section>
+
+      <!-- ============ 03 THE FEATURE CLIPS ============ -->
+      <section class="fl-ch" id="ch-3">
+        <div class="fl-label mono"><span>chapter 03</span><span>product marketing</span></div>
+        <div class="fl-intro">
+          <div>
+            <h2>the feature clips<span class="star">✦</span></h2>
+            <p><b>The brief:</b> One clip for every feature users didn't know about, simple enough to get in a few seconds.</p>
+            <p><b>The result:</b> Seven short, silent clips made to loop: AI voice tutor, find a mentor, book a mentor, mock tests, study planner, quiz builder and RC Verse. Same big type on Optima blue as the launch film, made with Claude.</p>
+          </div>
+          <div class="fl-preview">
+            <div class="fl-collage fl-collage--wide">
+              <img src="assets/videos/aivoice.jpg" alt="" /><img src="assets/videos/findmentor.jpg" alt="" />
+              <img src="assets/videos/quizbuilder.jpg" alt="" /><img src="assets/videos/rcverse.jpg" alt="" />
+            </div>
+            <p class="fl-num">chapter 3</p>
+          </div>
+        </div>
+        <div class="fl-work">
+          <div class="fl-row fl-row--wrap"><figure class="fl-clip" style="--ar:1.6"><video src="assets/videos/aivoice.mp4" poster="assets/videos/aivoice.jpg" muted loop playsinline preload="none" data-inview aria-label="AI voice tutor feature clip"></video><figcaption class="mono">AI voice tutor</figcaption></figure><figure class="fl-clip" style="--ar:1.778"><video src="assets/videos/findmentor.mp4" poster="assets/videos/findmentor.jpg" muted loop playsinline preload="none" data-inview aria-label="Find a mentor feature clip"></video><figcaption class="mono">Find a mentor</figcaption></figure><figure class="fl-clip" style="--ar:1.6"><video src="assets/videos/mentor.mp4" poster="assets/videos/mentor.jpg" muted loop playsinline preload="none" data-inview aria-label="Book a mentor feature clip"></video><figcaption class="mono">Book a mentor</figcaption></figure><figure class="fl-clip" style="--ar:1.6"><video src="assets/videos/mocks.mp4" poster="assets/videos/mocks.jpg" muted loop playsinline preload="none" data-inview aria-label="Mock tests feature clip"></video><figcaption class="mono">Mock tests</figcaption></figure></div>
+          <div class="fl-row fl-row--wrap"><figure class="fl-clip" style="--ar:1.6"><video src="assets/videos/planner.mp4" poster="assets/videos/planner.jpg" muted loop playsinline preload="none" data-inview aria-label="Study planner feature clip"></video><figcaption class="mono">Study planner</figcaption></figure><figure class="fl-clip" style="--ar:1.6"><video src="assets/videos/quizbuilder.mp4" poster="assets/videos/quizbuilder.jpg" muted loop playsinline preload="none" data-inview aria-label="Quiz builder feature clip"></video><figcaption class="mono">Quiz builder</figcaption></figure><figure class="fl-clip" style="--ar:1.6"><video src="assets/videos/rcverse.mp4" poster="assets/videos/rcverse.jpg" muted loop playsinline preload="none" data-inview aria-label="RC Verse feature clip"></video><figcaption class="mono">RC Verse</figcaption></figure></div>
+        </div>
+      </section>
+      <div class="fl-end"></div>
+    </div>
 
     <!-- ============ NEXT ============ -->
     <section class="contact case-next" data-tear="top">
       <p class="hand contact-psst">next up ↓</p>
-      <a class="contact-title next-link" href="posters.html">Next: personal work <em>→</em></a>
+      <a class="contact-title next-link" href="posters.html">Next: poster design <em>→</em></a>
       <footer class="footer mono">
         <span>© 2026</span>
         <a href="index.html">back home ↑</a>
@@ -142,9 +131,11 @@
     </section>
   </main>
 
+  <dialog class="lightbox lightbox--ig" aria-label="Design preview"><div class="lightbox-imgs"></div><p class="lightbox-concept"></p><span class="mono lightbox-close">click anywhere to close ✕</span></dialog>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=16"></script>
 </body>
 </html>
